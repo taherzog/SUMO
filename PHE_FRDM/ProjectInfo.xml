@@ -24,79 +24,70 @@
 -->
 <export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ProjectInfoDescription.xsd">
   <PROCESSOR>
-    <DeviceID>MK22FX512xxx12</DeviceID>
+    <DeviceID>MKL25Z128xxx4</DeviceID>
     <CoreNum>1</CoreNum>
     <Cores>
       <Core>
-        <CoreSet>Cortex-M4</CoreSet>
+        <CoreSet>Cortex-M0+</CoreSet>
       </Core>
     </Cores>
-    <SRAMsize>64k</SRAMsize>
-    <FLASHsize>512k</FLASHsize>
+    <SRAMsize>16k</SRAMsize>
+    <FLASHsize>128k</FLASHsize>
   </PROCESSOR>
   <PATHS>
-    <LinkerCommandFile>C:\INTRO_Projects\ATEAM_ROBO\Project_Settings\Linker_Files\ProcessorExpert.ld</LinkerCommandFile>
+    <LinkerCommandFile>C:\INTRO_Projects\PHE_FRDM\Project_Settings\Linker_Files\ProcessorExpert.ld</LinkerCommandFile>
     <IncludePaths>
       <Path>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\</Path>
       <Path>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\iofiles\</Path>
-      <Path>C:\INTRO_Projects\ATEAM_ROBO\Sources\</Path>
-      <Path>C:\INTRO_Projects\ATEAM_ROBO\Generated_Code\</Path>
+      <Path>C:\INTRO_Projects\PHE_FRDM\Sources\</Path>
+      <Path>C:\INTRO_Projects\PHE_FRDM\Generated_Code\</Path>
     </IncludePaths>
     <SourceCodePaths>
-      <Path>C:\INTRO_Projects\ATEAM_ROBO\Generated_Code\</Path>
-      <Path>C:\INTRO_Projects\ATEAM_ROBO\Project_Settings\Startup_Code\</Path>
-      <Path>C:\INTRO_Projects\ATEAM_ROBO\Sources\</Path>
+      <Path>C:\INTRO_Projects\PHE_FRDM\Generated_Code\</Path>
+      <Path>C:\INTRO_Projects\PHE_FRDM\Project_Settings\Startup_Code\</Path>
+      <Path>C:\INTRO_Projects\PHE_FRDM\Sources\</Path>
     </SourceCodePaths>
   </PATHS>
   <FILES>
     <GeneratedCs>
-      <PathName>C:\INTRO_Projects\ATEAM_ROBO\Generated_Code\Cpu.c</PathName>
-      <PathName>C:\INTRO_Projects\ATEAM_ROBO\Generated_Code\PE_LDD.c</PathName>
-      <PathName>C:\INTRO_Projects\ATEAM_ROBO\Generated_Code\Vectors.c</PathName>
-      <PathName>C:\INTRO_Projects\ATEAM_ROBO\Project_Settings\Startup_Code\startup.c</PathName>
-      <PathName>C:\INTRO_Projects\ATEAM_ROBO\Sources\Events.c</PathName>
-      <PathName>C:\INTRO_Projects\ATEAM_ROBO\Sources\main.c</PathName>
+      <PathName>C:\INTRO_Projects\PHE_FRDM\Generated_Code\Cpu.c</PathName>
+      <PathName>C:\INTRO_Projects\PHE_FRDM\Generated_Code\PE_LDD.c</PathName>
+      <PathName>C:\INTRO_Projects\PHE_FRDM\Generated_Code\Vectors.c</PathName>
+      <PathName>C:\INTRO_Projects\PHE_FRDM\Project_Settings\Startup_Code\startup.c</PathName>
+      <PathName>C:\INTRO_Projects\PHE_FRDM\Sources\Events.c</PathName>
+      <PathName>C:\INTRO_Projects\PHE_FRDM\Sources\main.c</PathName>
     </GeneratedCs>
     <GeneratedHs>
-      <PathName>C:\INTRO_Projects\ATEAM_ROBO\Generated_Code\Cpu.h</PathName>
-      <PathName>C:\INTRO_Projects\ATEAM_ROBO\Generated_Code\IO_Map.h</PathName>
-      <PathName>C:\INTRO_Projects\ATEAM_ROBO\Generated_Code\PE_Const.h</PathName>
-      <PathName>C:\INTRO_Projects\ATEAM_ROBO\Generated_Code\PE_Error.h</PathName>
-      <PathName>C:\INTRO_Projects\ATEAM_ROBO\Generated_Code\PE_LDD.h</PathName>
-      <PathName>C:\INTRO_Projects\ATEAM_ROBO\Generated_Code\PE_Types.h</PathName>
-      <PathName>C:\INTRO_Projects\ATEAM_ROBO\Sources\Events.h</PathName>
-      <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\iofiles\MK22F12.h</PathName>
+      <PathName>C:\INTRO_Projects\PHE_FRDM\Generated_Code\Cpu.h</PathName>
+      <PathName>C:\INTRO_Projects\PHE_FRDM\Generated_Code\IO_Map.h</PathName>
+      <PathName>C:\INTRO_Projects\PHE_FRDM\Generated_Code\PE_Const.h</PathName>
+      <PathName>C:\INTRO_Projects\PHE_FRDM\Generated_Code\PE_Error.h</PathName>
+      <PathName>C:\INTRO_Projects\PHE_FRDM\Generated_Code\PE_LDD.h</PathName>
+      <PathName>C:\INTRO_Projects\PHE_FRDM\Generated_Code\PE_Types.h</PathName>
+      <PathName>C:\INTRO_Projects\PHE_FRDM\Sources\Events.h</PathName>
+      <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\iofiles\MKL25Z4.h</PathName>
       <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\ADC_PDD.h</PathName>
-      <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\CAN_PDD.h</PathName>
       <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\CMP_PDD.h</PathName>
-      <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\CMT_PDD.h</PathName>
-      <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\CRC_PDD.h</PathName>
+      <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\COP_PDD.h</PathName>
       <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\DAC_PDD.h</PathName>
       <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\DMAMUX_PDD.h</PathName>
       <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\DMA_PDD.h</PathName>
-      <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\EWM_PDD.h</PathName>
-      <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\FMC_PDD.h</PathName>
-      <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\FTFE_PDD.h</PathName>
-      <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\FTM_PDD.h</PathName>
+      <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\FTFA_PDD.h</PathName>
       <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\GPIO_PDD.h</PathName>
       <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\I2C_PDD.h</PathName>
       <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\LPTMR_PDD.h</PathName>
       <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\MCM_PDD.h</PathName>
-      <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\PDB_PDD.h</PathName>
       <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\PDD_Types.h</PathName>
       <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\PIT_PDD.h</PathName>
       <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\PORT_PDD.h</PathName>
       <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\RTC_PDD.h</PathName>
-      <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\SAI_PDD.h</PathName>
-      <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\SDHC_PDD.h</PathName>
       <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\SIM_PDD.h</PathName>
       <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\SPI_PDD.h</PathName>
       <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\SysTick_PDD.h</PathName>
+      <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\TPM_PDD.h</PathName>
+      <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\UART0_PDD.h</PathName>
       <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\UART_PDD.h</PathName>
-      <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\USBDCD_PDD.h</PathName>
       <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\USB_PDD.h</PathName>
-      <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\VREF_PDD.h</PathName>
-      <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\WDOG_PDD.h</PathName>
     </GeneratedHs>
   </FILES>
   <OPTIONS>
