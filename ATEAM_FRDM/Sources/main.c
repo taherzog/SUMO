@@ -42,6 +42,7 @@
 int main(void)
 /*lint -restore Enable MISRA rule (6.3) checking. */
 {
+	//test comment reto
   /* Write your local variable definition here */
 
   /*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
