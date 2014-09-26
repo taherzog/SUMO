@@ -34,12 +34,17 @@
 #include "PE_Error.h"
 #include "PE_Const.h"
 #include "IO_Map.h"
+<<<<<<< HEAD
 #include "LedBit1.h"
 #include "BitIoLdd1.h"
 #include "LedBit2.h"
 #include "BitIoLdd2.h"
 #include "LedBit3.h"
 #include "BitIoLdd3.h"
+=======
+#include "Bit1.h"
+#include "BitIoLdd1.h"
+>>>>>>> 731e459cd2b06668cf9d454deaf56d05f4177542
 
 #ifdef __cplusplus
 extern "C" {
