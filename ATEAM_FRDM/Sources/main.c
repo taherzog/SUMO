@@ -25,12 +25,17 @@
 **  @{
 */         
 /* MODULE main */
-//Hallo Reto, das ist ein Test
 
 
 /* Including needed modules to compile this module/procedure */
 #include "Cpu.h"
 #include "Events.h"
+#include "LedBit1.h"
+#include "BitIoLdd1.h"
+#include "LedBit2.h"
+#include "BitIoLdd2.h"
+#include "LedBit3.h"
+#include "BitIoLdd3.h"
 /* Including shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
@@ -42,7 +47,7 @@
 int main(void)
 /*lint -restore Enable MISRA rule (6.3) checking. */
 {
-	//test comment reto
+
   /* Write your local variable definition here */
 
   /*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
@@ -50,7 +55,19 @@ int main(void)
   /*** End of Processor Expert internal initialization.                    ***/
 
   /* Write your code here */
-  /* For example: for(;;) { } */
+ for(;;) {
+
+	LED_Test();
+
+
+
+ }
+
+
+
+
+
+
 
   /*** Don't write any code pass this line, or it will be deleted during code generation. ***/
   /*** RTOS startup code. Macro PEX_RTOS_START is defined by the RTOS component. DON'T MODIFY THIS CODE!!! ***/

@@ -34,7 +34,7 @@
 		<link>
 			<name>Common</name>
 			<type>2</type>
-			<locationURI>copy_PARENT/DummyProject/Common</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/ATEAM_DummyProject/Common</locationURI>
 		</link>
 		<link>
 			<name>Static_Code/IO_Map/MKL25Z4.h</name>
