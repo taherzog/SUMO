@@ -44,6 +44,9 @@
 #include "IO_Map.h"
 /* User includes (#include below this line is not maintained by Processor Expert) */
 
+#include "Platform.h"
+#include "LED.h"
+
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
 int main(void)
 /*lint -restore Enable MISRA rule (6.3) checking. */
@@ -59,9 +62,9 @@ int main(void)
 
  for(;;) {
 
+	 LED1_On();
+
 	LED_Test();
-
-
 
  }
 

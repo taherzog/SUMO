@@ -7,7 +7,6 @@
 
 #include "Platform.h"
 
-
 #if PL_HAS_LED
 	#include "LED.h"
 #endif

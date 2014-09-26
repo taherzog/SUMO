@@ -35,55 +35,55 @@
     <FLASHsize>128k</FLASHsize>
   </PROCESSOR>
   <PATHS>
-    <LinkerCommandFile>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Project_Settings\Linker_Files\ProcessorExpert.ld</LinkerCommandFile>
+    <LinkerCommandFile>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Project_Settings\Linker_Files\ProcessorExpert.ld</LinkerCommandFile>
     <IncludePaths>
       <Path>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\</Path>
       <Path>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\iofiles\</Path>
-      <Path>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Sources\</Path>
-      <Path>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Generated_Code\</Path>
+      <Path>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Sources\</Path>
+      <Path>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Generated_Code\</Path>
     </IncludePaths>
     <SourceCodePaths>
-      <Path>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Common\</Path>
-      <Path>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Generated_Code\</Path>
-      <Path>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Project_Settings\Startup_Code\</Path>
-      <Path>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Sources\</Path>
+      <Path>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Common\</Path>
+      <Path>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Generated_Code\</Path>
+      <Path>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Project_Settings\Startup_Code\</Path>
+      <Path>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Sources\</Path>
     </SourceCodePaths>
   </PATHS>
   <FILES>
     <GeneratedCs>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Common\LED.c</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Common\Platform.c</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Generated_Code\BitIoLdd1.c</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Generated_Code\BitIoLdd2.c</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Generated_Code\BitIoLdd6.c</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Generated_Code\Cpu.c</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Generated_Code\LedBit1.c</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Generated_Code\LedBit2.c</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Generated_Code\LedBit3.c</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Generated_Code\PE_LDD.c</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Generated_Code\Vectors.c</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Generated_Code\WAIT1.c</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Project_Settings\Startup_Code\startup.c</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Sources\Events.c</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Sources\main.c</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Common\LED.c</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Common\Platform.c</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Generated_Code\BitIoLdd1.c</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Generated_Code\BitIoLdd2.c</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Generated_Code\BitIoLdd6.c</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Generated_Code\Cpu.c</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Generated_Code\LedBit1.c</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Generated_Code\LedBit2.c</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Generated_Code\LedBit3.c</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Generated_Code\PE_LDD.c</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Generated_Code\Vectors.c</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Generated_Code\WAIT1.c</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Project_Settings\Startup_Code\startup.c</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Sources\Events.c</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Sources\main.c</PathName>
     </GeneratedCs>
     <GeneratedHs>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Common\LED.h</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Common\Platform.h</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Generated_Code\BitIoLdd1.h</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Generated_Code\BitIoLdd2.h</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Generated_Code\BitIoLdd6.h</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Generated_Code\Cpu.h</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Generated_Code\IO_Map.h</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Generated_Code\LedBit1.h</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Generated_Code\LedBit2.h</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Generated_Code\LedBit3.h</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Generated_Code\PE_Const.h</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Generated_Code\PE_Error.h</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Generated_Code\PE_LDD.h</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Generated_Code\PE_Types.h</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Generated_Code\WAIT1.h</PathName>
-      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\SafetyCopy_Project\SUMO\ATEAM_FRDM\Sources\Events.h</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Common\LED.h</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Common\Platform.h</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Generated_Code\BitIoLdd1.h</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Generated_Code\BitIoLdd2.h</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Generated_Code\BitIoLdd6.h</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Generated_Code\Cpu.h</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Generated_Code\IO_Map.h</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Generated_Code\LedBit1.h</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Generated_Code\LedBit2.h</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Generated_Code\LedBit3.h</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Generated_Code\PE_Const.h</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Generated_Code\PE_Error.h</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Generated_Code\PE_LDD.h</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Generated_Code\PE_Types.h</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Generated_Code\WAIT1.h</PathName>
+      <PathName>C:\Users\reto\Documents\20-Bildung\40-Schule_FH\7_Semester\30_INTRO\GIT\SUMO\ATEAM_FRDM\Sources\Events.h</PathName>
       <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\iofiles\MKL25Z4.h</PathName>
       <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\ADC_PDD.h</PathName>
       <PathName>C:\Freescale\KDS_1.1.1\eclipse\ProcessorExpert\lib\Kinetis\pdd\inc\CMP_PDD.h</PathName>

@@ -5,8 +5,9 @@
  *      Author: reto
  */
 
-#include "Led.h"
+
 #include "Platform.h"
+#include "Led.h"
 
 
 void LED_Deinit(void){
@@ -14,7 +15,7 @@ void LED_Deinit(void){
 		LED1_Off();
 	#endif
 
-	#if PL_NOF_LEDS >= 2
+	#if PL_NOF_LEDS >=2
 		LED2_Off();
 	#endif
 
