@@ -64,7 +64,6 @@ int main(void)
 
 	 WAIT1_Waitms(500);
 	 LED1_Neg();
-
  }
 
 

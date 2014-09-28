@@ -28,7 +28,16 @@ void LED_Deinit(void){
 		LED3_Deinit();
 }
 
-
+/*!
+ * \brief Initialization of LED
+ *
+ * This function initializes all the LED's which are configured
+ * from the plattform settings.
+ *
+ * \note [any note about the function you might have]
+ * \author Reto Mathis, Philip Herzog
+ * \date 28.09.2014
+ */
 void LED_Init(void){
 	LED1_Init();
 	LED2_Init();
