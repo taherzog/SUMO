@@ -62,9 +62,8 @@ int main(void)
 
  for(;;) {
 
-	 LED1_On();
-
-	LED_Test();
+	 WAIT1_Waitms(500);
+	 LED1_Neg();
 
  }
 
