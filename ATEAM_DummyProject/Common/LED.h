@@ -8,15 +8,6 @@
 #ifndef LED_H_
 #define LED_H_
 
-//#include "LedBit1.h"
-//
-//#define LED1_On()		LedBit1_ClrVal()
-//#define LED1_Off()		LedBit1_SetVal()
-//#define LED1_Neg()		LedBit1_NegVal()
-//#define LED1_Get()		LedBit1_GetVal()
-//#define LED1_Put(val)	LedBit1_PutVal(val)
-//#define LED1_Init()
-//#define LED1_Deinit()
 
 #if PL_NOF_LEDS >= 1
 #include "LedBit1.h"

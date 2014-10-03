@@ -37,6 +37,7 @@
 #include "LedBit3.h"
 #include "BitIoLdd6.h"
 #include "WAIT1.h"
+#include "CS1.h"
 /* Including shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
@@ -62,16 +63,14 @@ int main(void)
 
  for(;;) {
 
-	 WAIT1_Waitms(500);
+	 LED2_Neg();
+	 CS1_CriticalVariable()
+	 CS1_EnterCritical();
+	 WAIT1_WaitOSms(500);
+	 CS1_ExitCritical();
 	 LED1_Neg();
+	 WAIT1_WaitOSms(500);
  }
-
-
-
-
-
-
-
 
   /* For example: for(;;) { } */
 
