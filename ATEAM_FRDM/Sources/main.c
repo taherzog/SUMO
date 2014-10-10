@@ -38,6 +38,7 @@
 #include "BitIoLdd6.h"
 #include "WAIT1.h"
 #include "CS1.h"
+#include "HF1.h"
 /* Including shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
@@ -47,6 +48,7 @@
 
 #include "Platform.h"
 #include "LED.h"
+#include "HardFault.h"
 
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
 int main(void)
@@ -63,6 +65,7 @@ int main(void)
 
  for(;;) {
 
+
 	 LED2_Neg();
 	 CS1_CriticalVariable()
 	 CS1_EnterCritical();
@@ -70,6 +73,10 @@ int main(void)
 	 CS1_ExitCritical();
 	 LED1_Neg();
 	 WAIT1_WaitOSms(500);
+
+	 //Create a HardFaults
+	 cause_hard_fault();
+
  }
 
   /* For example: for(;;) { } */
