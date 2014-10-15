@@ -39,16 +39,31 @@
 #include "WAIT1.h"
 #include "CS1.h"
 #include "HF1.h"
+#include "TI1.h"
+#include "TimerIntLdd1.h"
+#include "TU1.h"
+#include "SW1.h"
+#include "ExtIntLdd1.h"
+#include "SW2.h"
+#include "ExtIntLdd2.h"
+#include "SW3.h"
+#include "ExtIntLdd3.h"
+#include "PTA.h"
+#include "SW4.h"
+#include "ExtIntLdd4.h"
+#include "SW5.h"
+#include "BitIoLdd8.h"
+#include "SW6.h"
+#include "BitIoLdd9.h"
+#include "SW7.h"
+#include "ExtIntLdd5.h"
 /* Including shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
 #include "IO_Map.h"
 /* User includes (#include below this line is not maintained by Processor Expert) */
-
-#include "Platform.h"
-#include "LED.h"
-#include "HardFault.h"
+#include "Application.h"
 
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
 int main(void)
@@ -63,19 +78,10 @@ int main(void)
 
   /* Write your code here */
 
+  //Start Application here
+  APP_Start();
+
  for(;;) {
-
-
-	 LED2_Neg();
-	 CS1_CriticalVariable()
-	 CS1_EnterCritical();
-	 WAIT1_WaitOSms(500);
-	 CS1_ExitCritical();
-	 LED1_Neg();
-	 WAIT1_WaitOSms(500);
-
-	 //Create a HardFaults
-	 cause_hard_fault();
 
  }
 
