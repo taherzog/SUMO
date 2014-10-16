@@ -62,6 +62,12 @@
 #include "BitIoLdd9.h"
 #include "SW7.h"
 #include "ExtIntLdd5.h"
+#include "PTE.h"
+#include "CLS1.h"
+#include "WAIT2.h"
+#include "UTIL1.h"
+#include "AS1.h"
+#include "ASerialLdd1.h"
 
 
 #include "BitIoLdd1.h"
@@ -102,20 +108,6 @@ void Cpu_OnNMIINT(void);
 ** ===================================================================
 */
 void TI1_OnInterrupt(void);
-
-void SW7_OnInterrupt(void);
-/*
-** ===================================================================
-**     Event       :  SW7_OnInterrupt (module Events)
-**
-**     Component   :  SW7 [ExtInt]
-**     Description :
-**         This event is called when an active signal edge/level has
-**         occurred.
-**     Parameters  : None
-**     Returns     : Nothing
-** ===================================================================
-*/
 
 void SW4_OnInterrupt(void);
 /*
@@ -165,6 +157,20 @@ void SW1_OnInterrupt(void);
 **     Event       :  SW1_OnInterrupt (module Events)
 **
 **     Component   :  SW1 [ExtInt]
+**     Description :
+**         This event is called when an active signal edge/level has
+**         occurred.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void SW7_OnInterrupt(void);
+/*
+** ===================================================================
+**     Event       :  SW7_OnInterrupt (module Events)
+**
+**     Component   :  SW7 [ExtInt]
 **     Description :
 **         This event is called when an active signal edge/level has
 **         occurred.

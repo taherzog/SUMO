@@ -13,14 +13,15 @@
 #if PL_HAS_EVENTS
   #include "Event.h"
 #endif
+/*
 #if PL_HAS_DEBOUNCE
   #include "KeyDebounce.h"
-#endif
+#endif*/
 
 void KEY_Scan(void) {
-#if PL_HAS_DEBOUNCE
+/*#if PL_HAS_DEBOUNCE
   KEYDBNC_Process();
-#else
+#else*/
 #if PL_NOF_KEYS >= 1 && PL_KEY_POLLED_KEY1
   if (KEY1_Get()) { /* key pressed */
     EVNT_SetEvent(EVNT_SW1_PRESSED);
@@ -63,9 +64,10 @@ void KEY_Scan(void) {
 #if PL_HAS_KBI
 void KEY_OnInterrupt(KEY_Buttons button) {
   /*! \todo will need to implement functionality for interrupts */
-#if PL_HAS_DEBOUNCE
+/*#if PL_HAS_DEBOUNCE
   KEYDBNC_Process();
-#else
+#else*/
+
   switch(button) {
 #if PL_NOF_KEYS >= 1
     case KEY_BTN1: EVNT_SetEvent(EVNT_SW1_PRESSED); break;
@@ -148,7 +150,6 @@ void PORTA_OnInterrupt(void) {
 
   Cpu_ivINT_PORTA(); /* call interrupt handler created by the ExtInt components */
 }
-#endif
 
 /*! \brief Key driver initialization */
 void KEY_Init(void) {
@@ -159,4 +160,3 @@ void KEY_Init(void) {
 void KEY_Deinit(void) {
   /* nothing needed for now */
 }
-#endif /* PL_HAS_KEYS */

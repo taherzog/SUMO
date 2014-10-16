@@ -8,6 +8,7 @@
 #include "Platform.h"
 #include "Application.h"
 #include "WAIT1.h"
+#include "CLS1.h"
 
 #if PL_HAS_LED
   #include "LED.h"
@@ -48,14 +49,16 @@ static void APP_EventHandler(EVNT_Handle event) {
       WAIT1_Waitms(50);
       LED3_Off();
       break;
-    case EVENT_LED_HEARTBEAT:
+    /*case EVENT_LED_HEARTBEAT:
       LED2_Neg();
-      break;
+      break;*/
     case EVNT_SW1_PRESSED:
       lastKeyPressed = 1;
       LED1_On();
       WAIT1_Waitms(500);
       LED1_Off();
+      CLS1_SendStr("Hallo Test \n\r",CLS1_GetStdio()->stdOut);
+      CLS1_SendNum16u(1234,CLS1_GetStdio()->stdOut);
       break;
     case EVNT_SW2_PRESSED:
       lastKeyPressed = 2;
@@ -65,12 +68,15 @@ static void APP_EventHandler(EVNT_Handle event) {
       break;
     case EVNT_SW3_PRESSED:
       lastKeyPressed = 3;
-      LED3_On();
+      LED1_On();
       WAIT1_Waitms(500);
-      LED3_Off();
+      LED1_Off();
       break;
     case EVNT_SW4_PRESSED:
       lastKeyPressed = 4;
+      LED1_On();
+      WAIT1_Waitms(500);
+      LED1_Off();
       break;
     case EVNT_SW5_PRESSED:
       lastKeyPressed = 5;
@@ -90,7 +96,7 @@ static void APP_EventHandler(EVNT_Handle event) {
 static void APP_Loop(void) {
   int i;
 #if PL_HAS_KEYS
-  KEY_EnableInterrupts();
+  //KEY_EnableInterrupts();
 #endif
 
   for(;;) {

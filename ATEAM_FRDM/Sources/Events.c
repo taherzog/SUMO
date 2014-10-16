@@ -92,25 +92,6 @@ void TI1_OnInterrupt(void)
 
 /*
 ** ===================================================================
-**     Event       :  SW7_OnInterrupt (module Events)
-**
-**     Component   :  SW7 [ExtInt]
-**     Description :
-**         This event is called when an active signal edge/level has
-**         occurred.
-**     Parameters  : None
-**     Returns     : Nothing
-** ===================================================================
-*/
-void SW7_OnInterrupt(void)
-{
-  /* Write your code here ... */
-	//Call prepared Function when Interrupt happens:
-	KEY_OnInterrupt(KEY_BTN7);
-}
-
-/*
-** ===================================================================
 **     Event       :  SW4_OnInterrupt (module Events)
 **
 **     Component   :  SW4 [ExtInt]
@@ -124,7 +105,6 @@ void SW7_OnInterrupt(void)
 void SW4_OnInterrupt(void)
 {
   /* Write your code here ... */
-	//Call prepared Function when Interrupt happens:
 	KEY_OnInterrupt(KEY_BTN4);
 }
 
@@ -142,9 +122,15 @@ void SW4_OnInterrupt(void)
 */
 void SW3_OnInterrupt(void)
 {
-  /* Write your code here ... */
-	//Call prepared Function when Interrupt happens:
-	KEY_OnInterrupt(KEY_BTN2);
+
+	if (PORT_PDD_GetPinInterruptFlag(PORTA_BASE_PTR, ExtIntLdd3_PIN_INDEX))
+	{
+		PORT_PDD_ClearPinInterruptFlag(PORTA_BASE_PTR,ExtIntLdd3_PIN_INDEX);
+		KEY_OnInterrupt(KEY_BTN3);
+	}
+
+
+
 }
 
 /*
@@ -162,7 +148,6 @@ void SW3_OnInterrupt(void)
 void SW2_OnInterrupt(void)
 {
   /* Write your code here ... */
-	//Call prepared Function when Interrupt happens:
 	KEY_OnInterrupt(KEY_BTN2);
 }
 
@@ -181,9 +166,25 @@ void SW2_OnInterrupt(void)
 void SW1_OnInterrupt(void)
 {
   /* Write your code here ... */
-
-	//Call prepared Function when Interrupt happens:
 	KEY_OnInterrupt(KEY_BTN1);
+}
+
+/*
+** ===================================================================
+**     Event       :  SW7_OnInterrupt (module Events)
+**
+**     Component   :  SW7 [ExtInt]
+**     Description :
+**         This event is called when an active signal edge/level has
+**         occurred.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void SW7_OnInterrupt(void)
+{
+  /* Write your code here ... */
+	KEY_OnInterrupt(KEY_BTN7);
 }
 
 /* END Events */

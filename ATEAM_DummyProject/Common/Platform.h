@@ -12,6 +12,12 @@
 #include "PE_Error.h"		//List of global Error Constants
 #include <stddef.h>			//If we want to use NULL
 
+/* List of supported platforms. The PL_BOARD_IS_xxx is defined in the compiler command line settings.  */
+#define PL_IS_FRDM   (defined(PL_BOARD_IS_FRDM))
+  /*!< Macro is defined through compiler option for the FRDM board */
+#define PL_IS_ROBO  (defined(PL_BOARD_IS_ROBO))
+  /*!< Macro is defined through compiler option for the Robot board */
+
 #define PL_HAS_LED 			(1) 	//0 = no LED's on platform, 1 = LED's on Platform
 #define PL_HAS_EVENTS		(1) 	//Enable Events on Platform
 #define PL_HAS_TIMER		(1)		//Board has Timers
@@ -21,7 +27,6 @@
 #define PL_HAS_JOYSTICK		(1 && PL_IS_FRDM && PL_HAS_KEYS)		// Joystick Shield is attached
 
 /* additional hardware configuration */
-
 
 /* if keys are using interrupts or are polled */
 #if PL_IS_FRDM
@@ -35,6 +40,7 @@
 #elif PL_IS_ROBO
   #define PL_KEY_POLLED_KEY1    (0)
 #endif
+
 
 #if PL_IS_FRDM
   #if PL_HAS_JOYSTICK
