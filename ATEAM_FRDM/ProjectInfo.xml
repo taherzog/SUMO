@@ -52,17 +52,21 @@
   <FILES>
     <GeneratedCs>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Application.c</PathName>
+      <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Buzzer.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Debounce.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Event.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\KeyDebounce.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Keys.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\LED.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Platform.c</PathName>
+      <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Test.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Timer.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Trigger.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\AS1.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\ASerialLdd1.c</PathName>
+      <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\BUZ1.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\BitIoLdd1.c</PathName>
+      <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\BitIoLdd11.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\BitIoLdd2.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\BitIoLdd6.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\BitIoLdd8.c</PathName>
@@ -102,17 +106,21 @@
     </GeneratedCs>
     <GeneratedHs>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Application.h</PathName>
+      <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Buzzer.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Debounce.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Event.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\KeyDebounce.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Keys.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\LED.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Platform.h</PathName>
+      <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Test.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Timer.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Trigger.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\AS1.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\ASerialLdd1.h</PathName>
+      <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\BUZ1.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\BitIoLdd1.h</PathName>
+      <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\BitIoLdd11.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\BitIoLdd2.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\BitIoLdd6.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\BitIoLdd8.h</PathName>

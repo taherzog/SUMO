@@ -184,6 +184,7 @@ static void KEYDBNC_OnDebounceEvent(DBNC_EventKinds event, DBNC_KeySet keys) {
       break;
     case DBNC_EVENT_END:
       /*! \todo Implement what you have to do at the end of the debouncing */
+    	//After Debouncing enable the interrupt again.
 #if PL_HAS_KBI
       KEY_EnableInterrupts();
 #endif

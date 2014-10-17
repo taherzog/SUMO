@@ -27,6 +27,7 @@
 #define PL_HAS_JOYSTICK		(1 && PL_IS_FRDM && PL_HAS_KEYS)		// Joystick Shield is attached
 #define PL_HAS_DEBOUNCE		(1 && PL_HAS_KEYS)
 #define PL_HAS_TRIGGER		(1 && PL_HAS_TIMER)
+#define PL_HAS_BUZZER		(1 && PL_HAS_TRIGGER/* && PL_IS_ROBO*/)
 
 /* additional hardware configuration */
 

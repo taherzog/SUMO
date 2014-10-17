@@ -68,6 +68,8 @@
 #include "UTIL1.h"
 #include "AS1.h"
 #include "ASerialLdd1.h"
+#include "BUZ1.h"
+#include "BitIoLdd11.h"
 
 
 #include "BitIoLdd1.h"

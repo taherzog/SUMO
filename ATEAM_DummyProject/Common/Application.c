@@ -24,18 +24,16 @@
 #if PL_HAS_KEYS
   #include "Keys.h"
 #endif
-//#include "Test.h"
+#if PL_HAS_BUZZER
+	#include "Buzzer.h"
+#endif
 
-/*!
- * \brief Test Function with events
- *
- * This is a test function for the Eventhandling procedure
- *
- * \param EVNT_Handle event
- */
+#include "Test.h"
+
 static uint8_t lastKeyPressed;
 
 static void APP_EventHandler(EVNT_Handle event) {
+	uint8_t err;
   //TestFunction();
   switch(event) {
     case EVNT_INIT:
@@ -49,15 +47,16 @@ static void APP_EventHandler(EVNT_Handle event) {
       WAIT1_Waitms(50);
       LED3_Off();
       break;
-    case EVENT_LED_HEARTBEAT:
+    /*case EVENT_LED_HEARTBEAT:
       LED2_Neg();
-      break;
+      break;*/
     case EVNT_SW1_PRESSED:
       lastKeyPressed = 1;
       LED1_On();
       WAIT1_Waitms(50);
       LED1_Off();
       CLS1_SendStr("SW1 Pressed! \n\r",CLS1_GetStdio()->stdOut);
+      err = BUZ_Beep(500,2);
       break;
     case EVNT_SW2_PRESSED:
       lastKeyPressed = 2;
@@ -142,6 +141,9 @@ void APP_Start(void) {
   PL_Init(); /* platform initialization */
   //TEST_Test();
   EVNT_SetEvent(EVNT_INIT); /* set initial event */
+
+  TEST_onTrigger();
+
   APP_Loop();
 
   /* just in case we leave the main application loop */
