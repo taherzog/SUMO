@@ -49,43 +49,57 @@ static void APP_EventHandler(EVNT_Handle event) {
       WAIT1_Waitms(50);
       LED3_Off();
       break;
-    /*case EVENT_LED_HEARTBEAT:
+    case EVENT_LED_HEARTBEAT:
       LED2_Neg();
-      break;*/
+      break;
     case EVNT_SW1_PRESSED:
       lastKeyPressed = 1;
       LED1_On();
-      WAIT1_Waitms(500);
+      WAIT1_Waitms(50);
       LED1_Off();
-      CLS1_SendStr("Hallo Test \n\r",CLS1_GetStdio()->stdOut);
-      CLS1_SendNum16u(1234,CLS1_GetStdio()->stdOut);
+      CLS1_SendStr("SW1 Pressed! \n\r",CLS1_GetStdio()->stdOut);
       break;
     case EVNT_SW2_PRESSED:
       lastKeyPressed = 2;
       LED1_On();
-      WAIT1_Waitms(500);
+      WAIT1_Waitms(50);
       LED1_Off();
+      CLS1_SendStr("SW2 Pressed! \n\r",CLS1_GetStdio()->stdOut);
       break;
     case EVNT_SW3_PRESSED:
       lastKeyPressed = 3;
       LED1_On();
-      WAIT1_Waitms(500);
+      WAIT1_Waitms(50);
       LED1_Off();
+      CLS1_SendStr("SW3 Pressed! \n\r",CLS1_GetStdio()->stdOut);
       break;
     case EVNT_SW4_PRESSED:
       lastKeyPressed = 4;
       LED1_On();
-      WAIT1_Waitms(500);
+      WAIT1_Waitms(50);
       LED1_Off();
+      CLS1_SendStr("SW4 Pressed! \n\r",CLS1_GetStdio()->stdOut);
       break;
     case EVNT_SW5_PRESSED:
       lastKeyPressed = 5;
+      LED1_On();
+      WAIT1_Waitms(50);
+      LED1_Off();
+      CLS1_SendStr("SW5 Pressed! \n\r",CLS1_GetStdio()->stdOut);
       break;
     case EVNT_SW6_PRESSED:
       lastKeyPressed = 6;
+      LED1_On();
+      WAIT1_Waitms(50);
+      LED1_Off();
+      CLS1_SendStr("SW6 Pressed! \n\r",CLS1_GetStdio()->stdOut);
       break;
     case EVNT_SW7_PRESSED:
       lastKeyPressed = 7;
+      LED1_On();
+      WAIT1_Waitms(50);
+      LED1_Off();
+      CLS1_SendStr("SW7 Pressed! \n\r",CLS1_GetStdio()->stdOut);
       break;
     default:
       break;
