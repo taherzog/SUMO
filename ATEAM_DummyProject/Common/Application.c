@@ -8,7 +8,6 @@
 #include "Platform.h"
 #include "Application.h"
 #include "WAIT1.h"
-#include "CLS1.h"
 
 #if PL_HAS_LED
   #include "LED.h"
@@ -28,9 +27,9 @@
 	#include "Buzzer.h"
 #endif
 
-#include "Test.h"
 
 static uint8_t lastKeyPressed;
+static uint16_t freq = 500;
 
 static void APP_EventHandler(EVNT_Handle event) {
 	uint8_t err;
@@ -47,59 +46,35 @@ static void APP_EventHandler(EVNT_Handle event) {
       WAIT1_Waitms(50);
       LED3_Off();
       break;
-    /*case EVENT_LED_HEARTBEAT:
+    case EVENT_LED_HEARTBEAT:
       LED2_Neg();
-      break;*/
+      break;
     case EVNT_SW1_PRESSED:
       lastKeyPressed = 1;
-      LED1_On();
-      WAIT1_Waitms(50);
-      LED1_Off();
-      CLS1_SendStr("SW1 Pressed! \n\r",CLS1_GetStdio()->stdOut);
-      err = BUZ_Beep(500,2);
+      uint8_t err;
+      //freq = freq + 5;
+      err = BUZ_Beep(500,1000);
       break;
+#if PL_IS_FRDM
     case EVNT_SW2_PRESSED:
       lastKeyPressed = 2;
-      LED1_On();
-      WAIT1_Waitms(50);
-      LED1_Off();
-      CLS1_SendStr("SW2 Pressed! \n\r",CLS1_GetStdio()->stdOut);
       break;
     case EVNT_SW3_PRESSED:
       lastKeyPressed = 3;
-      LED1_On();
-      WAIT1_Waitms(50);
-      LED1_Off();
-      CLS1_SendStr("SW3 Pressed! \n\r",CLS1_GetStdio()->stdOut);
       break;
     case EVNT_SW4_PRESSED:
       lastKeyPressed = 4;
-      LED1_On();
-      WAIT1_Waitms(50);
-      LED1_Off();
-      CLS1_SendStr("SW4 Pressed! \n\r",CLS1_GetStdio()->stdOut);
       break;
     case EVNT_SW5_PRESSED:
       lastKeyPressed = 5;
-      LED1_On();
-      WAIT1_Waitms(50);
-      LED1_Off();
-      CLS1_SendStr("SW5 Pressed! \n\r",CLS1_GetStdio()->stdOut);
       break;
     case EVNT_SW6_PRESSED:
       lastKeyPressed = 6;
-      LED1_On();
-      WAIT1_Waitms(50);
-      LED1_Off();
-      CLS1_SendStr("SW6 Pressed! \n\r",CLS1_GetStdio()->stdOut);
       break;
     case EVNT_SW7_PRESSED:
       lastKeyPressed = 7;
-      LED1_On();
-      WAIT1_Waitms(50);
-      LED1_Off();
-      CLS1_SendStr("SW7 Pressed! \n\r",CLS1_GetStdio()->stdOut);
       break;
+#endif
     default:
       break;
   }
@@ -112,10 +87,13 @@ static void APP_Loop(void) {
   //KEY_EnableInterrupts();
 #endif
 
+
+
   for(;;) {
 	#if PL_HAS_EVENTS
     EVNT_HandleEvent(APP_EventHandler); /* handle pending events */
 	#endif
+
 
     /*
     LED1_On();
@@ -142,7 +120,6 @@ void APP_Start(void) {
   //TEST_Test();
   EVNT_SetEvent(EVNT_INIT); /* set initial event */
 
-  TEST_onTrigger();
 
   APP_Loop();
 

@@ -11,7 +11,7 @@
 /*
  * \brief this is a test function for the Trigger Option
  */
-void APP_onTrigger(void);
+void APP_onButton(void);
 
 
 #endif /* TEST_H_ */

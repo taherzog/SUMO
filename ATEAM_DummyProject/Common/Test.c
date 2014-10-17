@@ -7,15 +7,15 @@
 
 #include "Trigger.h"
 #include "LED.h"
+#include "Buzzer.h"
+#include "Test.h"
 
 
 /*
  * \brief this is a test function for the Trigger Option
  */
-void TEST_onTrigger(void)
+void TEST_onButton(void)
 {
 	uint8_t err;
-	LED1_Neg();
-	err = TRG_SetTrigger(TRG_LED_BLINK, (TRG_TriggerTime)100, (TRG_Callback)TEST_onTrigger, NULL);
-
+	err = BUZ_Beep(500,1000);
 }
