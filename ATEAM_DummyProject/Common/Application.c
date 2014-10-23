@@ -8,6 +8,7 @@
 #include "Platform.h"
 #include "Application.h"
 #include "WAIT1.h"
+#include "CLS1.h"
 
 #if PL_HAS_LED
   #include "LED.h"
@@ -51,28 +52,47 @@ static void APP_EventHandler(EVNT_Handle event) {
       break;
     case EVNT_SW1_PRESSED:
       lastKeyPressed = 1;
-      uint8_t err;
-      //freq = freq + 5;
-      err = BUZ_Beep(500,1000);
+      LED1_On();
+      WAIT1_Waitms(50);
+      LED1_Off();
+      CLS1_SendStr("SW1",CLS1_GetStdio()->stdOut);
       break;
 #if PL_IS_FRDM
     case EVNT_SW2_PRESSED:
       lastKeyPressed = 2;
+      LED1_On();
+      WAIT1_Waitms(50);
+      LED1_Off();
       break;
     case EVNT_SW3_PRESSED:
       lastKeyPressed = 3;
+      LED1_On();
+      WAIT1_Waitms(50);
+      LED1_Off();
       break;
     case EVNT_SW4_PRESSED:
       lastKeyPressed = 4;
+      LED1_On();
+      WAIT1_Waitms(50);
+      LED1_Off();
       break;
     case EVNT_SW5_PRESSED:
       lastKeyPressed = 5;
+      LED1_On();
+      WAIT1_Waitms(50);
+      LED1_Off();
       break;
     case EVNT_SW6_PRESSED:
       lastKeyPressed = 6;
+      LED1_On();
+      WAIT1_Waitms(50);
+      LED1_Off();
       break;
     case EVNT_SW7_PRESSED:
       lastKeyPressed = 7;
+      LED1_On();
+      WAIT1_Waitms(50);
+      LED1_Off();
       break;
 #endif
     default:
