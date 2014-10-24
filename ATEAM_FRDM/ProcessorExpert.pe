@@ -3,8 +3,8 @@
   <Header>
     <Name>ATEAM_FRDM</Name>
     <SavedBy>pherzog</SavedBy>
-    <ModificationStamp>34</ModificationStamp>
-    <Date>2014-10-23</Date>
+    <ModificationStamp>46</ModificationStamp>
+    <Date>2014-10-24</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.10.0.RT6_b1428-0121</PEversion>
   </Header>
@@ -29,7 +29,7 @@
     <UseExistingModules>true</UseExistingModules>
     <RenamePeripheries>false</RenamePeripheries>
     <Autodependency>true</Autodependency>
-    <ProjectCompNumb>110</ProjectCompNumb>
+    <ProjectCompNumb>129</ProjectCompNumb>
     <DelUnusedPreviouslyGenFiles>true</DelUnusedPreviouslyGenFiles>
     <GeneratedCodeFrozen>false</GeneratedCodeFrozen>
     <AssignInitComponentNameToPrph>true</AssignInitComponentNameToPrph>
@@ -2412,7 +2412,7 @@
         <ItemSymbol>PeriphDeviceLLWU</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value />
+        <Value>LLWU</Value>
         <SharedPrphMode>false</SharedPrphMode>
       </ItemState>
       <ItemState>
@@ -2932,7 +2932,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>LLWUIntCommon</ItemSymbol>
-        <Value />
+        <Value>INT_LLW</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>LLWUIntCommonRequestFeatureGroup</ItemSymbol>
@@ -2944,7 +2944,6 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
         <TypeSpecNameState>typeKinetisLLWUIntCommonRequest</TypeSpecNameState>
         <Index>1</Index>
         <EnumSymbVal>disabled</EnumSymbVal>
@@ -2959,7 +2958,6 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
         <TypeSpecNameState>typeKinetisLLWUIntCommonPriority</TypeSpecNameState>
         <Index>0</Index>
         <EnumSymbVal>0</EnumSymbVal>
@@ -2985,8 +2983,8 @@
       <ItemState>
         <ItemSymbol>LLWUIsInitialized</ItemSymbol>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>1</Index>
-        <Value>false</Value>
+        <Index>0</Index>
+        <Value>true</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>Shared_CPULowPowerGrp0</ItemSymbol>

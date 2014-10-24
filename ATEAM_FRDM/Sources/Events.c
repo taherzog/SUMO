@@ -48,6 +48,8 @@ extern "C" {
   #include "Keys.h"
 #endif
 
+#include "LED.h"
+
 /*
 ** ===================================================================
 **     Event       :  Cpu_OnNMIINT (module Events)
@@ -186,6 +188,7 @@ void SW7_OnInterrupt(void)
   /* Write your code here ... */
 	KEY_OnInterrupt(KEY_BTN7);
 }
+
 
 /* END Events */
 

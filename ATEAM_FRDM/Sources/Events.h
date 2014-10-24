@@ -181,6 +181,7 @@ void SW7_OnInterrupt(void);
 ** ===================================================================
 */
 
+
 /* END Events */
 
 #ifdef __cplusplus

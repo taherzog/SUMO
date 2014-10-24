@@ -28,6 +28,7 @@
 #define PL_HAS_DEBOUNCE		(1 && PL_HAS_KEYS)
 #define PL_HAS_TRIGGER		(1 && PL_HAS_TIMER)
 #define PL_HAS_BUZZER		(1 && PL_HAS_TRIGGER && PL_IS_ROBO)
+//#define PL_HAS_RTOS			(1)		//Has a RTOS
 
 /* additional hardware configuration */
 

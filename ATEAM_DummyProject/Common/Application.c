@@ -8,7 +8,7 @@
 #include "Platform.h"
 #include "Application.h"
 #include "WAIT1.h"
-#include "CLS1.h"
+//#include "CLS1.h"
 
 #if PL_HAS_LED
   #include "LED.h"
@@ -16,11 +16,11 @@
 #if PL_HAS_EVENTS
   #include "Event.h"
 #endif
-/*
-#if PL_HAS_MEALY
+
+/*#if PL_HAS_MEALY
   #include "Mealy.h"
-#endif
-*/
+#endif*/
+
 #if PL_HAS_KEYS
   #include "Keys.h"
 #endif
@@ -55,7 +55,7 @@ static void APP_EventHandler(EVNT_Handle event) {
       LED1_On();
       WAIT1_Waitms(50);
       LED1_Off();
-      CLS1_SendStr("SW1",CLS1_GetStdio()->stdOut);
+      //CLS1_SendStr("SW1",CLS1_GetStdio()->stdOut);
       break;
 #if PL_IS_FRDM
     case EVNT_SW2_PRESSED:
@@ -104,7 +104,7 @@ static void APP_EventHandler(EVNT_Handle event) {
 static void APP_Loop(void) {
   int i;
 #if PL_HAS_KEYS
-  //KEY_EnableInterrupts();
+  KEY_EnableInterrupts();
 #endif
 
 
