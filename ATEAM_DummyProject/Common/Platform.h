@@ -29,6 +29,9 @@
 #define PL_HAS_TRIGGER		(1 && PL_HAS_TIMER)
 #define PL_HAS_BUZZER		(1 && PL_HAS_TRIGGER && PL_IS_ROBO)
 #define PL_HAS_RTOS			(1)		//Has a RTOS
+#define PL_HAS_SHELL		(1)		//Has a Shell
+#define PL_HAS_BLUETOOTH	(0)		//Has Bluetooth
+#define PL_HAS_USB_CDC		(0)		//Has CDC
 
 /* additional hardware configuration */
 

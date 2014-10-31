@@ -35,6 +35,12 @@
 #if PL_HAS_RTOS
   #include "RTOS.h"
 #endif
+#if PL_HAS_SHELL
+#include "Shell.h"
+#endif
+
+//PL_HAS_BLUETOOTH
+//PL_HAS_USB_CDC
 
 
 void PL_Init(void){
@@ -65,6 +71,9 @@ void PL_Init(void){
 #endif
 #if PL_HAS_RTOS
   RTOS_Init();
+#endif
+#if PL_HAS_SHELL
+  SHELL_Init();
 #endif
 
 }
@@ -97,6 +106,12 @@ void PL_Deinit(void){
 #endif
 #if PL_HAS_LED
   LED_Deinit();
+#endif
+#if PL_HAS_RTOS
+  RTOS_Deinit();
+#endif
+#if PL_HAS_SHELL
+  SHELL_Deinit();
 #endif
 }
 
