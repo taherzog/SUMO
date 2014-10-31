@@ -39,10 +39,6 @@
 #include "Shell.h"
 #endif
 
-//PL_HAS_BLUETOOTH
-//PL_HAS_USB_CDC
-
-
 void PL_Init(void){
 #if PL_HAS_LED
   LED_Init();
@@ -74,6 +70,12 @@ void PL_Init(void){
 #endif
 #if PL_HAS_SHELL
   SHELL_Init();
+#endif
+#if PL_HAS_USB_CDC
+  USB1_Init();
+#endif
+#if PL_HAS_BLUETOOTH
+  BT1_Init();
 #endif
 
 }
@@ -112,6 +114,12 @@ void PL_Deinit(void){
 #endif
 #if PL_HAS_SHELL
   SHELL_Deinit();
+#endif
+#if PL_HAS_USB_CDC
+  USB1_Deinit();
+#endif
+#if PL_HAS_BLUETOOTH
+  BT1_Deinit();
 #endif
 }
 

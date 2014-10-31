@@ -17,8 +17,8 @@
 
 static portTASK_FUNCTION(HeartBeat, pvParameters) {
   for(;;) {
-    LED2_Neg();
-    vTaskDelay(5000/portTICK_RATE_MS);
+    LED1_Neg();
+    vTaskDelay(500/portTICK_RATE_MS);
   }
 }
 

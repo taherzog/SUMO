@@ -9,6 +9,7 @@
 #include "Application.h"
 #include "CLS1.h"
 #include "FRTOS1.h"
+#include "Buzzer.h"
 
 
 
@@ -38,7 +39,7 @@ static void APP_EventHandler(EVNT_Handle event) {
       LED1_On();
       vTaskDelay(50/portTICK_RATE_MS);
       LED1_Off();
-      CLS1_SendStr("SW1",CLS1_GetStdio()->stdOut);
+      BUZ_Beep(1000, 2000);
       break;
 #if PL_IS_FRDM
     case EVNT_SW2_PRESSED:
