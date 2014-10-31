@@ -25,10 +25,10 @@
 #define PL_HAS_KBI			(1)		//Key button support
 #define PL_HAS_RESET_KEY	(0 && PL_IS_FRDM && PL_HAS_KEYS)		// Use Reset Button on Board
 #define PL_HAS_JOYSTICK		(1 && PL_IS_FRDM && PL_HAS_KEYS)		// Joystick Shield is attached
-#define PL_HAS_DEBOUNCE		(1 && PL_HAS_KEYS)
+#define PL_HAS_DEBOUNCE		(0 && PL_HAS_KEYS)
 #define PL_HAS_TRIGGER		(1 && PL_HAS_TIMER)
 #define PL_HAS_BUZZER		(1 && PL_HAS_TRIGGER && PL_IS_ROBO)
-//#define PL_HAS_RTOS			(1)		//Has a RTOS
+#define PL_HAS_RTOS			(1)		//Has a RTOS
 
 /* additional hardware configuration */
 

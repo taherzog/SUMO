@@ -65,6 +65,8 @@
 #include "ASerialLdd1.h"
 #include "BUZ1.h"
 #include "BitIoLdd11.h"
+#include "FRTOS1.h"
+#include "RTOSCNTRLDD1.h"
 /* Including shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"

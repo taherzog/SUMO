@@ -8,7 +8,7 @@
 #include "Platform.h"
 #include "Application.h"
 #include "WAIT1.h"
-//#include "CLS1.h"
+#include "CLS1.h"
 
 #if PL_HAS_LED
   #include "LED.h"
@@ -17,24 +17,23 @@
   #include "Event.h"
 #endif
 
-/*#if PL_HAS_MEALY
-  #include "Mealy.h"
-#endif*/
-
 #if PL_HAS_KEYS
   #include "Keys.h"
 #endif
 #if PL_HAS_BUZZER
 	#include "Buzzer.h"
 #endif
+#if PL_HAS_RTOS
+	#include "RTOS.h"
+#endif
 
 
 static uint8_t lastKeyPressed;
 static uint16_t freq = 500;
 
+
 static void APP_EventHandler(EVNT_Handle event) {
 	uint8_t err;
-  //TestFunction();
   switch(event) {
     case EVNT_INIT:
       LED1_On();
@@ -55,7 +54,7 @@ static void APP_EventHandler(EVNT_Handle event) {
       LED1_On();
       WAIT1_Waitms(50);
       LED1_Off();
-      //CLS1_SendStr("SW1",CLS1_GetStdio()->stdOut);
+      CLS1_SendStr("SW1",CLS1_GetStdio()->stdOut);
       break;
 #if PL_IS_FRDM
     case EVNT_SW2_PRESSED:
@@ -102,7 +101,7 @@ static void APP_EventHandler(EVNT_Handle event) {
 
 
 static void APP_Loop(void) {
-  int i;
+
 #if PL_HAS_KEYS
   KEY_EnableInterrupts();
 #endif
@@ -111,21 +110,9 @@ static void APP_Loop(void) {
 
   for(;;) {
 	#if PL_HAS_EVENTS
-    EVNT_HandleEvent(APP_EventHandler); /* handle pending events */
+    EVNT_HandleEvent(APP_EventHandler); // handle pending events
 	#endif
 
-
-    /*
-    LED1_On();
-    WAIT1_Waitms(300);
-    LED1_Off();
-    LED2_On();
-    WAIT1_Waitms(300);
-    LED2_Off();
-    LED3_On();
-    WAIT1_Waitms(300);
-    LED3_Off();
-    */
 
 #if PL_HAS_KEYS
     KEY_Scan(); // scan keys
@@ -137,12 +124,14 @@ static void APP_Loop(void) {
 
 void APP_Start(void) {
   PL_Init(); /* platform initialization */
-  //TEST_Test();
-  EVNT_SetEvent(EVNT_INIT); /* set initial event */
 
+  //RTOS_Init();
+  RTOS_Run();
 
-  APP_Loop();
+  //EVNT_SetEvent(EVNT_INIT); /* set initial event */
+
+  //APP_Loop();
 
   /* just in case we leave the main application loop */
-  PL_Deinit();
+  //PL_Deinit();
 }
