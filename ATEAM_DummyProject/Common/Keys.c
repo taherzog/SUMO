@@ -10,6 +10,7 @@
 #include "Platform.h"
 #if PL_HAS_KEYS
   #include "Keys.h"
+#endif
 #if PL_HAS_EVENTS
   #include "Event.h"
 #endif
@@ -18,9 +19,9 @@
 #endif
 
 void KEY_Scan(void) {
-/*#if PL_HAS_DEBOUNCE
+#if PL_HAS_DEBOUNCE
   KEYDBNC_Process();
-#else*/
+#else
 #if PL_NOF_KEYS >= 1 && PL_KEY_POLLED_KEY1
   if (KEY1_Get()) { /* key pressed */
     EVNT_SetEvent(EVNT_SW1_PRESSED);
@@ -65,6 +66,7 @@ void KEY_OnInterrupt(KEY_Buttons button) {
   /*! \todo will need to implement functionality for interrupts */
 #if PL_HAS_DEBOUNCE
   KEYDBNC_Process();
+
 #else
 
   switch(button) {
