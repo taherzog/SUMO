@@ -91,6 +91,7 @@ void TI1_OnInterrupt(void)
 
 	//Routing to the TMR_OnInterrupt() Routine
 #if PL_HAS_TIMER
+	//Not needed anymore
 	//TMR_OnInterrupt();
 #endif
 }
@@ -128,6 +129,7 @@ void SW4_OnInterrupt(void)
 void SW3_OnInterrupt(void)
 {
 
+	// Workaround for NMI Port
 	if (PORT_PDD_GetPinInterruptFlag(PORTA_BASE_PTR, ExtIntLdd3_PIN_INDEX))
 	{
 		PORT_PDD_ClearPinInterruptFlag(PORTA_BASE_PTR,ExtIntLdd3_PIN_INDEX);
@@ -236,7 +238,8 @@ void FRTOS1_vApplicationStackOverflowHook(xTaskHandle pxTask, char *pcTaskName)
 void FRTOS1_vApplicationTickHook(void)
 {
   /* Called for every RTOS tick. */
-  /* Write your code here ... */
+
+// Increment Trigger Timer.
 #if PL_HAS_TRIGGER
 	TRG_IncTick();
 #endif

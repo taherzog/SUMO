@@ -7,7 +7,6 @@
 
 #include "Platform.h"
 #include "Application.h"
-#include "WAIT1.h"
 #include "CLS1.h"
 #include "FRTOS1.h"
 
@@ -16,6 +15,7 @@
 static uint8_t lastKeyPressed;
 static uint16_t freq = 500;
 
+/*! \brief Handles the Events */
 static void APP_EventHandler(EVNT_Handle event) {
 	uint8_t err;
   switch(event) {
@@ -84,13 +84,17 @@ static void APP_EventHandler(EVNT_Handle event) {
 }
 
 
+/*
+ *
+ */
+
 static void APP_Loop(void) {
 
+	// Not needed anymore because RTOS is used.
+	/*
 #if PL_HAS_KEYS
   KEY_EnableInterrupts();
 #endif
-
-
 
   for(;;) {
 	#if PL_HAS_EVENTS
@@ -102,9 +106,12 @@ static void APP_Loop(void) {
     KEY_Scan(); // scan keys
 #endif
     WAIT1_Waitms(100);
-  }
+  }*/
 }
 
+/*
+ * Task for Handling the Events and the KeyScan.
+ */
 static void APPTask(void *pvParameters) {
   (void)pvParameters; /* not used */
 
@@ -120,11 +127,11 @@ static void APPTask(void *pvParameters) {
   }
 }
 
+/*! \brief Function for starting the Application. Inits and Start the RTOS */
 void APP_Start(void) {
-  PL_Init(); /* platform initialization */
+  PL_Init(); 				/* platform initialization */
 
   EVNT_SetEvent(EVNT_INIT); /* set initial event */
-
 
   //Create application Task
   if (FRTOS1_xTaskCreate(APPTask, (signed portCHAR *)"APP_Task", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL) != pdPASS) {
@@ -132,11 +139,4 @@ void APP_Start(void) {
   }
 
   RTOS_Run();
-
-  //EVNT_SetEvent(EVNT_INIT); /* set initial event */
-
-  //APP_Loop();
-
-  /* just in case we leave the main application loop */
-  //PL_Deinit();
 }

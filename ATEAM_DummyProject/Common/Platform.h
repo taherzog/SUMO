@@ -78,10 +78,4 @@ void PL_Init(void);
 //Deinitialize Platform
 void PL_Deinit(void);
 
-
-
-
-
-
-
 #endif /* PLATFORM_H_ */
