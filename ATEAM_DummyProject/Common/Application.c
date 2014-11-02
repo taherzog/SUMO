@@ -39,7 +39,9 @@ static void APP_EventHandler(EVNT_Handle event) {
       LED1_On();
       vTaskDelay(50/portTICK_RATE_MS);
       LED1_Off();
+#if PL_HAS_BUZZER
       BUZ_Beep(1000, 2000);
+#endif
       break;
 #if PL_IS_FRDM
     case EVNT_SW2_PRESSED:

@@ -18,12 +18,19 @@
 #if PL_HAS_BLUETOOTH
   #include "BT1.h"
 #endif
+#if PL_HAS_SHELL_QUEUE
+	#include "ShellQueue.h"
+#endif
 
 static uint32_t SHELL_val; /* used as demo value for shell */
 
 void SHELL_SendString(unsigned char *msg) {
-  /*! \todo Replace this with message queues */
-  CLS1_SendStr(msg, CLS1_GetStdio()->stdOut);
+
+#if PL_HAS_SHELL_QUEUE
+	SQUEUE_SendString(msg);
+#else
+	CLS1_SendStr(msg, CLS1_GetStdio()->stdOut);
+#endif
 }
 
 /*!
@@ -154,6 +161,19 @@ static portTASK_FUNCTION(ShellTask, pvParameters) {
 #endif
 #if PL_HAS_BLUETOOTH
     (void)CLS1_ReadAndParseWithCommandTable(bluetooth_buf, sizeof(bluetooth_buf), &BT_stdio, CmdParserTable);
+#endif
+#if PL_HAS_SHELL_QUEUE // Wieso braucht es Runde Klammern?
+    {
+      /*! \todo Handle shell queue */
+      unsigned char ch;
+
+      while((ch=SQUEUE_ReceiveChar()) && ch!='\0') {
+        ioLocal->stdOut(ch);
+#if PL_HAS_BLUETOOTH
+        BT_stdio.stdOut(ch); /* copy on Bluetooth */
+#endif
+      }
+    }
 #endif
     FRTOS1_vTaskDelay(50/portTICK_RATE_MS);
   } /* for */

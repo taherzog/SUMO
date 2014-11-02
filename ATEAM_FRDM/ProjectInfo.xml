@@ -61,6 +61,7 @@
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Platform.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\RTOS.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Shell.c</PathName>
+      <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\ShellQueue.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Test.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Timer.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Trigger.c</PathName>
@@ -143,6 +144,7 @@
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Platform.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\RTOS.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Shell.h</PathName>
+      <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\ShellQueue.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Test.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Timer.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Trigger.h</PathName>

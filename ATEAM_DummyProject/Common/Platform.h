@@ -30,8 +30,9 @@
 #define PL_HAS_BUZZER		(1 && PL_HAS_TRIGGER && PL_IS_ROBO)
 #define PL_HAS_RTOS			(1)		//Has a RTOS
 #define PL_HAS_SHELL		(1)		//Has a Shell
-#define PL_HAS_BLUETOOTH	(1)		//Has Bluetooth
-#define PL_HAS_USB_CDC		(1)		//Has CDC
+#define PL_HAS_BLUETOOTH	(1 && PL_IS_ROBO)		//Has Bluetooth
+#define PL_HAS_USB_CDC		(1)		//Has CDC - communications device class
+#define PL_HAS_SHELL_QUEUE	(1)		//Use a queue to send datas over the shell resource
 
 /* additional hardware configuration */
 

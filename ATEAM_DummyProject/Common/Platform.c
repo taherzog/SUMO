@@ -38,6 +38,12 @@
 #if PL_HAS_SHELL
 #include "Shell.h"
 #endif
+#if PL_HAS_BLUETOOTH
+//Nothing to Include for Bluetooth
+#endif
+#if PL_HAS_SHELL_QUEUE
+	#include "ShellQueue.h"
+#endif
 
 void PL_Init(void){
 #if PL_HAS_LED
@@ -71,13 +77,12 @@ void PL_Init(void){
 #if PL_HAS_SHELL
   SHELL_Init();
 #endif
-#if PL_HAS_USB_CDC
-  USB1_Init();
-#endif
 #if PL_HAS_BLUETOOTH
   BT1_Init();
 #endif
-
+#if PL_HAS_SHELL_QUEUE
+	SQUEUE_Init();
+#endif
 }
 
 void PL_Deinit(void){
@@ -115,11 +120,11 @@ void PL_Deinit(void){
 #if PL_HAS_SHELL
   SHELL_Deinit();
 #endif
-#if PL_HAS_USB_CDC
-  USB1_Deinit();
-#endif
 #if PL_HAS_BLUETOOTH
   BT1_Deinit();
+#endif
+#if PL_HAS_SHELL_QUEUE
+  SQUEUE_Deinit();
 #endif
 }
 
