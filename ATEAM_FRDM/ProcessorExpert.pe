@@ -3,8 +3,8 @@
   <Header>
     <Name>ATEAM_FRDM</Name>
     <SavedBy>pherzog</SavedBy>
-    <ModificationStamp>66</ModificationStamp>
-    <Date>2014-11-02</Date>
+    <ModificationStamp>71</ModificationStamp>
+    <Date>2014-11-06</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.10.0.RT6_b1428-0121</PEversion>
   </Header>
@@ -39860,7 +39860,7 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>0</Value>
+        <Value>5</Value>
         <Base>DEC</Base>
       </ItemState>
       <ItemState>
