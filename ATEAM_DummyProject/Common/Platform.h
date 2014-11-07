@@ -34,6 +34,7 @@
 #define PL_HAS_USB_CDC		(1)		//Has CDC - communications device class
 #define PL_HAS_SHELL_QUEUE	(1)		//Use a queue to send datas over the shell resource
 #define PL_HAS_SEMAPHORE	(1)		//Use Semaphores on the platformw
+#define PL_HAS_LINE_SENSOR	(1)		//Has a Line-Sensor
 
 /* additional hardware configuration */
 
