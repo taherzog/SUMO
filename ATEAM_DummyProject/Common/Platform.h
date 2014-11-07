@@ -33,6 +33,7 @@
 #define PL_HAS_BLUETOOTH	(1 && PL_IS_ROBO)		//Has Bluetooth
 #define PL_HAS_USB_CDC		(1)		//Has CDC - communications device class
 #define PL_HAS_SHELL_QUEUE	(1)		//Use a queue to send datas over the shell resource
+#define PL_HAS_SEMAPHORE	(1)		//Use Semaphores on the platformw
 
 /* additional hardware configuration */
 
