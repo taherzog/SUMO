@@ -43,6 +43,7 @@
 #include "BUZ1.h"
 #include "BitIoLdd3.h"
 #include "FRTOS1.h"
+#include "RTOSCNTRLDD1.h"
 #include "UTIL1.h"
 #include "CLS1.h"
 #include "USB1.h"

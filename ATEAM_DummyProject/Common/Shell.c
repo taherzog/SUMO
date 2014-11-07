@@ -130,6 +130,7 @@ static CLS1_ConstStdIOType CDC_stdio = {
 #endif
 
 static portTASK_FUNCTION(ShellTask, pvParameters) {
+	//Create the different buffers
 #if PL_HAS_USB_CDC
   static unsigned char cdc_buf[48];
 #endif
@@ -141,6 +142,7 @@ static portTASK_FUNCTION(ShellTask, pvParameters) {
   CLS1_ConstStdIOTypePtr ioLocal = CLS1_GetStdio();  
 #endif
   
+  //Initialization of the buffer, necessary, because the CLS1 only append to the buffer.
   (void)pvParameters; /* not used */
 #if PL_HAS_USB_CDC
   cdc_buf[0] = '\0';
@@ -152,6 +154,8 @@ static portTASK_FUNCTION(ShellTask, pvParameters) {
 #if CLS1_DEFAULT_SERIAL
   (void)CLS1_ParseWithCommandTable((unsigned char*)CLS1_CMD_HELP, ioLocal, CmdParserTable);
 #endif
+
+  //TaskLoop
   for(;;) {
 #if CLS1_DEFAULT_SERIAL
     (void)CLS1_ReadAndParseWithCommandTable(localConsole_buf, sizeof(localConsole_buf), ioLocal, CmdParserTable);
