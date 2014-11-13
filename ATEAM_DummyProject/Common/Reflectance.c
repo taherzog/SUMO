@@ -118,7 +118,6 @@ static void REF_MeasureRaw(SensorTimeType raw[REF_NOF_SENSORS]) {
   }
   do {
     /*! \todo Be aware that this might block for a long time, if discharging takes long. Consider using a timeout. */
-	  // The
     cnt = 0;
     for(i=0;i<REF_NOF_SENSORS;i++) {
       if (raw[i]==MAX_SENSOR_VALUE) { /* not measured yet? So only the ones, which are not measured yet will be*/

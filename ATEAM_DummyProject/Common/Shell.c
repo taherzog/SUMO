@@ -21,7 +21,7 @@
 #if PL_HAS_SHELL_QUEUE
 	#include "ShellQueue.h"
 #endif
-#if PL_HAS_REFLECTANCE
+#if PL_HAS_LINE_SENSOR
   #include "Reflectance.h"
 #endif
 
@@ -95,7 +95,7 @@ static const CLS1_ParseCommandCallback CmdParserTable[] =
   BT1_ParseCommand,
 #endif
 #endif
-#if PL_HAS_REFLECTANCE
+#if PL_HAS_LINE_SENSOR
   #if REF_PARSE_COMMAND_ENABLED
   REF_ParseCommand,
   #endif
