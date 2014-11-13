@@ -23,6 +23,7 @@
 #include "Application.h"
 #include "Event.h"
 #include "Shell.h"
+#include "BUZ1.h"
 
 #define REF_NOF_SENSORS 6 /* number of sensors */
 
@@ -283,6 +284,7 @@ static void REF_StateMachine(void) {
       break;
     
     case REF_STATE_START_CALIBRATION:
+      //BUZ_Beep(500,3);
       SHELL_SendString((unsigned char*)"start calibration...\r\n");
       for(i=0;i<REF_NOF_SENSORS;i++) {
         SensorCalibMinMax.minVal[i] = MAX_SENSOR_VALUE;
@@ -301,7 +303,7 @@ static void REF_StateMachine(void) {
       break;
     
     case REF_STATE_STOP_CALIBRATION:
-      SHELL_SendString((unsigned char*)"...stopping calibration.\r\n");
+      SHELL_SendString((unsigned char*)"...stopping calibration. Next Ready State\r\n");
       refState = REF_STATE_READY;
       break;
         

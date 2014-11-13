@@ -10,6 +10,7 @@
 #include "CLS1.h"
 #include "FRTOS1.h"
 #include "Buzzer.h"
+#include "Event.h"
 
 
 
@@ -39,10 +40,18 @@ static void APP_EventHandler(EVNT_Handle event) {
       LED1_On();
       vTaskDelay(50/portTICK_RATE_MS);
       LED1_Off();
+      EVNT_SetEvent(EVNT_REF_START_STOP_CALIBRATION);
 #if PL_HAS_BUZZER
-      BUZ_Beep(1000, 2000);
+      //BUZ_Beep(1000, 2000);
 #endif
       break;
+
+#if PL_HAS_LINE_SENSOR
+    case EVNT_REF_START_STOP_CALIBRATION: //Create event again, because the event is handled in the "Reflectance.c" directly.
+      EVNT_SetEvent(EVNT_REF_START_STOP_CALIBRATION);
+      break;
+#endif
+
 #if PL_IS_FRDM
     case EVNT_SW2_PRESSED:
       lastKeyPressed = 2;
