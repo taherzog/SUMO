@@ -53,6 +53,10 @@
 #if PL_HAS_MOTOR
 	#include "Motor.h"
 #endif
+#if PL_HAS_MOTOR_QUAD
+	#include "Position.h"
+#endif
+
 
 void PL_Init(void){
 #if PL_HAS_LED
@@ -101,6 +105,10 @@ void PL_Init(void){
 #if PL_HAS_MOTOR
 	MOT_Init();
 #endif
+#if PL_HAS_MOTOR_QUAD
+	POS_Init();
+#endif
+
 }
 
 void PL_Deinit(void){
@@ -152,6 +160,9 @@ void PL_Deinit(void){
 #endif
 #if PL_HAS_MOTOR
 	MOT_Deinit();
+#endif
+#if PL_HAS_MOTOR_QUAD
+	POS_Deinit();
 #endif
 }
 

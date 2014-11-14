@@ -36,9 +36,10 @@
 #define PL_HAS_SEMAPHORE			(1)		//Use Semaphores on the platformw
 #define PL_HAS_LINE_SENSOR			(1)		//Has a Line-Sensor
 #define PL_HAS_MOTOR				(1)		//Has a Motor
-#define PL_HAS_QUAD_CALIBRATION		(0)	//Quad Calibration
-#define PL_HAS_MCP4728				(1)			//Has a Motor controller
-#define PL_IS_INTRO_ZUMO_K22_V2		(1)	//Uses the I2C Adresse 0x61 instead of 0x60
+#define PL_HAS_QUAD_CALIBRATION		(0)		//Quad Calibration
+#define PL_HAS_MCP4728				(1)		//Has a Motor controller
+#define PL_IS_INTRO_ZUMO_K22_V2		(1)		//Uses the I2C Adresse 0x61 instead of 0x60
+#define PL_HAS_MOTOR_QUAD			(1)		//Use Counters for the Quadrature Encoders
 
 /* additional hardware configuration */
 

@@ -33,7 +33,7 @@
 #if PL_HAS_QUAD_CALIBRATION
   #include "QuadCalib.h"
 #endif
-#if PL_HAS_QUADRATURE
+#if PL_HAS_MOTOR_QUAD
   #include "Q4CLeft.h"
   #include "Q4CRight.h"
 #endif
@@ -124,7 +124,7 @@ static const CLS1_ParseCommandCallback CmdParserTable[] =
 #if PL_HAS_QUAD_CALIBRATION
   QUADCALIB_ParseCommand,
 #endif
-#if PL_HAS_QUADRATURE
+#if PL_HAS_MOTOR_QUAD
 #if Q4CLeft_PARSE_COMMAND_ENABLED
   Q4CLeft_ParseCommand,
 #endif
