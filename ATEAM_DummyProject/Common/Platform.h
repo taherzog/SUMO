@@ -35,6 +35,7 @@
 #define PL_HAS_SHELL_QUEUE	(1)		//Use a queue to send datas over the shell resource
 #define PL_HAS_SEMAPHORE	(1)		//Use Semaphores on the platformw
 #define PL_HAS_LINE_SENSOR	(1)		//Has a Line-Sensor
+#define PL_HAS_MOTOR		(1 && PL_IS_ROBO)	//Has a Motor
 
 /* additional hardware configuration */
 

@@ -24,6 +24,9 @@
 #if PL_HAS_LINE_SENSOR
   #include "Reflectance.h"
 #endif
+#if PL_HAS_MOTOR
+  #include "Motor.h"
+#endif
 
 static uint32_t SHELL_val; /* used as demo value for shell */
 
@@ -99,6 +102,11 @@ static const CLS1_ParseCommandCallback CmdParserTable[] =
   #if REF_PARSE_COMMAND_ENABLED
   REF_ParseCommand,
   #endif
+#endif
+#if PL_HAS_MOTOR
+#endif
+#if PL_HAS_MOTOR
+  MOT_ParseCommand,
 #endif
   NULL /* Sentinel */
 };
