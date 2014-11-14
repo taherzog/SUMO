@@ -18,25 +18,27 @@
 #define PL_IS_ROBO  (defined(PL_BOARD_IS_ROBO))
   /*!< Macro is defined through compiler option for the Robot board */
 
-#define PL_HAS_LED 			(1) 	//0 = no LED's on platform, 1 = LED's on Platform
-#define PL_HAS_EVENTS		(1) 	//Enable Events on Platform
-#define PL_HAS_TIMER		(1)		//Board has Timers
-#define PL_HAS_KEYS			(1)		//Board has Keys
-#define PL_HAS_KBI			(1)		//Key button support
-#define PL_HAS_RESET_KEY	(1 && PL_IS_FRDM && PL_HAS_KEYS)		// Use Reset Button on Board
-#define PL_HAS_JOYSTICK		(1 && PL_IS_FRDM && PL_HAS_KEYS)		// Joystick Shield is attached
-#define PL_HAS_DEBOUNCE		(1 && PL_HAS_KEYS)
-#define PL_HAS_TRIGGER		(1 && PL_HAS_TIMER)
-#define PL_HAS_BUZZER		(1 && PL_HAS_TRIGGER && PL_IS_ROBO)
-#define PL_HAS_RTOS			(1)		//Has a RTOS
-#define PL_HAS_SHELL		(1)		//Has a Shell
-#define PL_HAS_BLUETOOTH	(1 && PL_IS_ROBO)		//Has Bluetooth
-#define PL_HAS_USB_CDC		(1)		//Has CDC - communications device class
-#define PL_HAS_SHELL_QUEUE	(1)		//Use a queue to send datas over the shell resource
-#define PL_HAS_SEMAPHORE	(1)		//Use Semaphores on the platformw
-#define PL_HAS_LINE_SENSOR	(1)		//Has a Line-Sensor
-#define PL_HAS_MOTOR		(1)		//Has a Motor
-
+#define PL_HAS_LED 					(1) 	//0 = no LED's on platform, 1 = LED's on Platform
+#define PL_HAS_EVENTS				(1) 	//Enable Events on Platform
+#define PL_HAS_TIMER				(1)		//Board has Timers
+#define PL_HAS_KEYS					(1)		//Board has Keys
+#define PL_HAS_KBI					(1)		//Key button support
+#define PL_HAS_RESET_KEY			(1 && PL_IS_FRDM && PL_HAS_KEYS)		// Use Reset Button on Board
+#define PL_HAS_JOYSTICK				(1 && PL_IS_FRDM && PL_HAS_KEYS)		// Joystick Shield is attached
+#define PL_HAS_DEBOUNCE				(1 && PL_HAS_KEYS)
+#define PL_HAS_TRIGGER				(1 && PL_HAS_TIMER)
+#define PL_HAS_BUZZER				(1 && PL_HAS_TRIGGER && PL_IS_ROBO)
+#define PL_HAS_RTOS					(1)		//Has a RTOS
+#define PL_HAS_SHELL				(1)		//Has a Shell
+#define PL_HAS_BLUETOOTH			(1 && PL_IS_ROBO)		//Has Bluetooth
+#define PL_HAS_USB_CDC				(1)		//Has CDC - communications device class
+#define PL_HAS_SHELL_QUEUE			(1)		//Use a queue to send datas over the shell resource
+#define PL_HAS_SEMAPHORE			(1)		//Use Semaphores on the platformw
+#define PL_HAS_LINE_SENSOR			(1)		//Has a Line-Sensor
+#define PL_HAS_MOTOR				(1)		//Has a Motor
+#define PL_HAS_QUAD_CALIBRATION		(0)	//Quad Calibration
+#define PL_HAS_MCP4728				(1)			//Has a Motor controller
+#define PL_IS_INTRO_ZUMO_K22_V2		(1)	//Uses the I2C Adresse 0x61 instead of 0x60
 
 /* additional hardware configuration */
 

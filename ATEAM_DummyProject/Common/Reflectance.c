@@ -352,9 +352,9 @@ static portTASK_FUNCTION(ReflTaskLine, pvParameters) {
   for(;;) {
 	if(refState == REF_STATE_READY)
 	{
-		REF_GetLinePosition();		//Writes into the Variable LinePosition
-		UTIL1_Num16uToStr(buf,24,(size_t)LinePosition);
-		SHELL_SendString((unsigned char*) buf);
+		//REF_GetLinePosition();		//Writes into the Variable LinePosition
+		//UTIL1_Num16uToStr(buf,24,(size_t)LinePosition);
+		//SHELL_SendString((unsigned char*) buf);
 		//UTIL1_Num16uToStr(LinePosition);
 
 	}
