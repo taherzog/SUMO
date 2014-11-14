@@ -48,7 +48,11 @@ static void APP_EventHandler(EVNT_Handle event) {
 
 #if PL_HAS_LINE_SENSOR
     case EVNT_REF_START_STOP_CALIBRATION: //Create event again, because the event is handled in the "Reflectance.c" directly.
-      EVNT_SetEvent(EVNT_REF_START_STOP_CALIBRATION);
+    	if(!EVNT_EventIsSet(EVNT_REF_START_STOP_CALIBRATION))
+    	{
+    		EVNT_SetEvent(EVNT_REF_START_STOP_CALIBRATION);
+    	}
+
       break;
 #endif
 

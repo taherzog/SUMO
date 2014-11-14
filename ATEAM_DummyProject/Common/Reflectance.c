@@ -7,7 +7,9 @@
  */
 
 #include "Platform.h"
+
 #if PL_HAS_LINE_SENSOR
+
 #include "Reflectance.h"
 #include "LED_IR.h"
 #include "WAIT1.h"
@@ -55,6 +57,7 @@ typedef struct SensorCalibT_ {
   SensorTimeType maxVal[REF_NOF_SENSORS];
 } SensorCalibT;
 
+static uint16_t LinePosition;		/*Line Detection algorithm*/
 static SensorCalibT SensorCalibMinMax; /* min/max calibration data in SRAM */
 static SensorTimeType SensorRaw[REF_NOF_SENSORS]; /* raw sensor values */
 static SensorTimeType SensorCalibrated[REF_NOF_SENSORS]; /* 0 means white/min value, 1000 means black/max value */
@@ -101,7 +104,10 @@ static const SensorFctType SensorFctArray[REF_NOF_SENSORS] = {
 
 static void REF_MeasureRaw(SensorTimeType raw[REF_NOF_SENSORS]) {
   uint8_t cnt; /* number of sensor */
+  uint8_t timeout;
   uint8_t i;
+
+  timeout = 0;
 
   LED_IR_On(); /* IR LED's on */
   WAIT1_Waitus(200); /*! \todo adjust time as needed */
@@ -124,9 +130,17 @@ static void REF_MeasureRaw(SensorTimeType raw[REF_NOF_SENSORS]) {
         if (SensorFctArray[i].GetVal()==0) {
         	//If input is down, store the value.
         	raw[i] = RefCnt_GetCounterValue(timerHandle);
+        	timeout = 0;
         }
         else // The value is not yet measured. Timeout after a few measurements.
         {
+        	timeout = timeout + 1;
+        	if (timeout > 100){
+        		raw[i] = MAX_SENSOR_VALUE-1;
+        		timeout = 0;
+        		LED_IR_Off();
+        		return;
+        	}
         }
       } else { /* have already a value */
         cnt++;
@@ -172,6 +186,14 @@ static void ReadCalibrated(SensorTimeType calib[REF_NOF_SENSORS], SensorTimeType
 
 static void REF_Measure(void) {
   ReadCalibrated(SensorCalibrated, SensorRaw);
+}
+
+//This Function implements the Algorithm for a weighted line detection.
+static uint16_t REF_GetLinePosition(void) {
+	//Iterate
+	LinePosition = (uint32_t)(SensorCalibrated[0]*1000 + SensorCalibrated[1]*2000 + SensorCalibrated[2]*3000 + SensorCalibrated[3]*4000 + SensorCalibrated[4]*5000 + SensorCalibrated[5]*6000);
+	LinePosition = (uint32_t)LinePosition / (uint32_t)(SensorCalibrated[0] + SensorCalibrated[1] + SensorCalibrated[2] + SensorCalibrated[3] + SensorCalibrated[4] + SensorCalibrated[5]);
+	return LinePosition;
 }
 
 static uint8_t PrintHelp(const CLS1_StdIOType *io) {
@@ -324,6 +346,23 @@ static portTASK_FUNCTION(ReflTask, pvParameters) {
   }
 }
 
+static portTASK_FUNCTION(ReflTaskLine, pvParameters) {
+  (void)pvParameters; /* not used */
+  unsigned char buf[24];
+  for(;;) {
+	if(refState == REF_STATE_READY)
+	{
+		REF_GetLinePosition();		//Writes into the Variable LinePosition
+		UTIL1_Num16uToStr(buf,24,(size_t)LinePosition);
+		SHELL_SendString((unsigned char*) buf);
+		//UTIL1_Num16uToStr(LinePosition);
+
+	}
+    FRTOS1_vTaskDelay(1000/portTICK_RATE_MS);
+  }
+}
+
+
 void REF_Deinit(void) {
 }
 
@@ -334,5 +373,9 @@ void REF_Init(void) {
   if (FRTOS1_xTaskCreate(ReflTask, "Refl", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL) != pdPASS) {
     for(;;){} /* error */
   }
+  if (FRTOS1_xTaskCreate(ReflTaskLine, "Refl_Line", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL) != pdPASS) {
+      for(;;){} /* error */
+    }
 }
+
 #endif /* PL_HAS_LINE_SENSOR */
