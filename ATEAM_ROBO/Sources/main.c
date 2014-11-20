@@ -72,6 +72,8 @@
 #include "BitIoLdd11.h"
 #include "PWMR.h"
 #include "PwmLdd1.h"
+#include "QuadInt.h"
+#include "TimerIntLdd2.h"
 #include "DIRR.h"
 #include "BitIoLdd12.h"
 #include "PWML.h"
@@ -94,6 +96,9 @@
 #include "GI2C1.h"
 #include "I2C1.h"
 #include "TMOUT1.h"
+#include "TU2.h"
+#include "IFsh1.h"
+#include "IntFlashLdd1.h"
 /* Including shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"

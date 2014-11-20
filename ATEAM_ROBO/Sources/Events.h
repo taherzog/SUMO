@@ -76,6 +76,8 @@
 #include "BitIoLdd11.h"
 #include "PWMR.h"
 #include "PwmLdd1.h"
+#include "QuadInt.h"
+#include "TimerIntLdd2.h"
 #include "DIRR.h"
 #include "BitIoLdd12.h"
 #include "PWML.h"
@@ -98,6 +100,9 @@
 #include "GI2C1.h"
 #include "I2C1.h"
 #include "TMOUT1.h"
+#include "TU2.h"
+#include "IFsh1.h"
+#include "IntFlashLdd1.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -235,6 +240,22 @@ void GI2C1_OnReleaseBus(void);
 **     Returns     : Nothing
 ** ===================================================================
 */
+
+/*
+** ===================================================================
+**     Event       :  QuadInt_OnInterrupt (module Events)
+**
+**     Component   :  QuadInt [TimerInt]
+**     Description :
+**         When a timer interrupt occurs this event is called (only
+**         when the component is enabled - <Enable> and the events are
+**         enabled - <EnableEvent>). This event is enabled only if a
+**         <interrupt service/event> is enabled.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void QuadInt_OnInterrupt(void);
 
 /* END Events */
 

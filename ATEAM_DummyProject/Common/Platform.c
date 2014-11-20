@@ -53,8 +53,11 @@
 #if PL_HAS_MOTOR
 	#include "Motor.h"
 #endif
-#if PL_HAS_MOTOR_QUAD
-	#include "Position.h"
+#if PL_HAS_MOTOR_TACHO
+	#include "Tacho.h"
+#endif
+#if PL_HAS_DRIVE
+	#include "Drive.h"
 #endif
 
 
@@ -105,8 +108,14 @@ void PL_Init(void){
 #if PL_HAS_MOTOR
 	MOT_Init();
 #endif
-#if PL_HAS_MOTOR_QUAD
-	POS_Init();
+#if PL_HAS_MOTOR_TACHO
+	TACHO_Init();
+#endif
+#if PL_HAS_PID
+	PID_Init();
+#endif
+#if PL_HAS_DRIVE
+	DRV_Init();
 #endif
 
 }
@@ -161,8 +170,14 @@ void PL_Deinit(void){
 #if PL_HAS_MOTOR
 	MOT_Deinit();
 #endif
-#if PL_HAS_MOTOR_QUAD
-	POS_Deinit();
+#if PL_HAS_MOTOR_TACHO
+	TACHO_Deinit();
+#endif
+#if PL_HAS_PID
+	PID_Deinit();
+#endif
+#if PL_HAS_DRIVE
+	DRV_Deinit();
 #endif
 }
 

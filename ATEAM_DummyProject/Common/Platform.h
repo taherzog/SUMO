@@ -40,6 +40,9 @@
 #define PL_HAS_MCP4728				(1)		//Has a Motor controller
 #define PL_IS_INTRO_ZUMO_K22_V2		(1)		//Uses the I2C Adresse 0x61 instead of 0x60
 #define PL_HAS_MOTOR_QUAD			(1)		//Use Counters for the Quadrature Encoders
+#define PL_HAS_MOTOR_TACHO			(1)		//Use a Tacho to measure the Speed
+#define PL_HAS_PID					(1)		//Use the PID Controller
+#define PL_HAS_DRIVE				(1)		//Use the Drive Component
 
 /* additional hardware configuration */
 

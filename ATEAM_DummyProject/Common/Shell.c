@@ -37,6 +37,15 @@
   #include "Q4CLeft.h"
   #include "Q4CRight.h"
 #endif
+#if PL_HAS_MOTOR_TACHO
+	#include "Tacho.h"
+#endif
+#if PL_HAS_PID
+	#include "Pid.h"
+#endif
+#if PL_HAS_DRIVE
+	#include "Drive.h"
+#endif
 
 static uint32_t SHELL_val; /* used as demo value for shell */
 
@@ -131,6 +140,15 @@ static const CLS1_ParseCommandCallback CmdParserTable[] =
 #if Q4CRight_PARSE_COMMAND_ENABLED
   Q4CRight_ParseCommand,
 #endif
+#endif
+#if PL_HAS_MOTOR_TACHO
+  TACHO_ParseCommand,
+#endif
+#if PL_HAS_PID
+  PID_ParseCommand,
+#endif
+#if PL_HAS_DRIVE
+	DRV_ParseCommand,
 #endif
   NULL /* Sentinel */
 };
