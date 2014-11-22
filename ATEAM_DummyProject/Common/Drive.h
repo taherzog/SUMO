@@ -24,10 +24,17 @@ uint8_t DRV_ParseCommand(const unsigned char *cmd, bool *handled, const CLS1_Std
 #endif
 
 /*!
- * \brief Enables or disbles the drive mode.
+ * \brief Enables or disbles the drive mode in SpeedMode.
  * \param enable TRUE to enable, FALSE otherwise.
  */
-void DRV_EnableDisable(bool enable);
+void DRV_EnableDisableSpeed(bool enable);
+
+/*!
+ * \brief Enables or disbles the drive mode in PositionMode.
+ * \param enable TRUE to enable, FALSE otherwise.
+ */
+void DRV_EnableDisablePosition(bool enable);
+
 
 /*!
  * \brief Sets the driving speed for left and right.
@@ -35,6 +42,13 @@ void DRV_EnableDisable(bool enable);
  * \param right Right wheel speed.
  */
 void DRV_SetSpeed(int32_t left, int32_t right);
+
+/*!
+ * \brief Sets the position for left and right motor
+ * \param left Left wheel position.
+ * \param right Right wheel position.
+ */
+void DRV_SetPosition(int32_t left, int32_t right);
 
 /*! \brief Driver initialization */
 void DRV_Init(void);
