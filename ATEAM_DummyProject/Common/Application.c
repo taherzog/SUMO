@@ -8,10 +8,18 @@
 #include "Platform.h"
 #include "Application.h"
 #include "CLS1.h"
-#include "FRTOS1.h"
-#include "Buzzer.h"
-#include "Event.h"
-
+#if PL_HAS_RTOS
+	#include "FRTOS1.h"
+#endif
+#if PL_HAS_BUZZER
+	#include "Buzzer.h"
+#endif
+#if PL_HAS_EVENTS
+	#include "Event.h"
+#endif
+#if PL_HAS_ACCEL
+	#include "Accel.h"
+#endif
 
 
 static uint8_t lastKeyPressed;
@@ -130,6 +138,10 @@ static void APP_Loop(void) {
  */
 static void APPTask(void *pvParameters) {
   (void)pvParameters; /* not used */
+
+#if PL_HAS_ACCEL //Initialize Accelometer in a task because it used interrupts, which are disabled when the RTOS is not running.
+  ACCEL_LowLevelInit();
+#endif
 
   for(;;) {
 #if PL_HAS_EVENTS

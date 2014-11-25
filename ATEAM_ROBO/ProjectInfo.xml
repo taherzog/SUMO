@@ -51,6 +51,7 @@
   </PATHS>
   <FILES>
     <GeneratedCs>
+      <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Common\Accel.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Common\Application.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Common\Buzzer.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Common\Debounce.c</PathName>
@@ -124,6 +125,7 @@
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Generated_Code\LedBit1.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Generated_Code\MCP4728_LDAC.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Generated_Code\MCP4728_RDY.c</PathName>
+      <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Generated_Code\MMA1.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Generated_Code\MOTTU.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Generated_Code\PE_LDD.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Generated_Code\PWML.c</PathName>
@@ -173,6 +175,7 @@
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Sources\main.c</PathName>
     </GeneratedCs>
     <GeneratedHs>
+      <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Common\Accel.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Common\Application.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Common\Buzzer.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Common\Debounce.h</PathName>
@@ -250,6 +253,7 @@
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Generated_Code\LedBit1.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Generated_Code\MCP4728_LDAC.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Generated_Code\MCP4728_RDY.h</PathName>
+      <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Generated_Code\MMA1.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Generated_Code\MOTTU.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Generated_Code\PE_Const.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Generated_Code\PE_Error.h</PathName>
