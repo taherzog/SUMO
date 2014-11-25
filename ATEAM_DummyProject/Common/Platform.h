@@ -43,6 +43,8 @@
 #define PL_HAS_MOTOR_TACHO			(1)		//Use a Tacho to measure the Speed
 #define PL_HAS_PID					(1)		//Use the PID Controller
 #define PL_HAS_DRIVE				(1)		//Use the Drive Component
+#define PL_HAS_ULTRASONIC			(1)		//Has a ultrasonic sensor to measure distances
+
 
 /* additional hardware configuration */
 
