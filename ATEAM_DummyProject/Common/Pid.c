@@ -28,8 +28,8 @@ typedef struct {
 /*! \todo Add your own additional configurations as needed, at least with a position config */
 static PID_Config speedLeftConfig, speedRightConfig;
 static PID_Config posLeftConfig, posRightConfig;
+static PID_Config disConfig;
 
-static PID_Config speedLeftConfig, speedRightConfig;
 
 static int32_t PID(int32_t currVal, int32_t setVal, PID_Config *config) {
   int32_t error;
@@ -55,7 +55,9 @@ void PID_SpeedCfg(int32_t currSpeed, int32_t setSpeed, bool isLeft, PID_Config *
   MOT_Direction direction=MOT_DIR_FORWARD;
   MOT_MotorDevice *motHandle;
   
+  //
   speed = PID(currSpeed, setSpeed, config);
+
   if (speed>=0) {
     direction = MOT_DIR_FORWARD;
   } else { /* negative, make it positive */
@@ -90,7 +92,9 @@ void PID_PosCfg(int32_t currPos, int32_t setPos, bool isLeft, PID_Config *config
   MOT_Direction direction=MOT_DIR_FORWARD;
   MOT_MotorDevice *motHandle;
 
+  //Run the PID Controller
   pwm = PID(currPos, setPos, config);
+
   /* transform into motor pwm */
   pwm *= 1000; /* scale PID, otherwise we need high PID constants */
   if (pwm>=0) {
@@ -117,10 +121,17 @@ void PID_PosCfg(int32_t currPos, int32_t setPos, bool isLeft, PID_Config *config
 void PID_Pos(int32_t currPos, int32_t setPos, bool isLeft) {
 	//Select Configuration for the correct side.
 	if (isLeft) {
-	    PID_PosCfg(currPos, setPos, isLeft, &posLeftConfig);
+	    PID_PosCfg(currPos, setPos, isLeft, &disConfig);
 	  } else {
-	    PID_PosCfg(currPos, setPos, isLeft, &posRightConfig);
+	    PID_PosCfg(currPos, setPos, isLeft, &disConfig);
 	  }
+}
+
+void PID_Dis(int32_t currDis, int32_t setDis) {
+	//Select Configuration for the correct side.
+	PID_PosCfg(setDis, currDis, TRUE, &disConfig);
+	PID_PosCfg(setDis, currDis, FALSE, &disConfig);
+
 }
 
 #if PL_HAS_SHELL
@@ -129,6 +140,7 @@ static void PID_PrintHelp(const CLS1_StdIOType *io) {
   CLS1_SendHelpStr((unsigned char*)"  help|status", (unsigned char*)"Shows PID help or status\r\n", io->stdOut);
   CLS1_SendHelpStr((unsigned char*)"  speed (L|R) (p|d|i|w) <value>", (unsigned char*)"Sets P, D, I or anti-windup position value\r\n", io->stdOut);
   CLS1_SendHelpStr((unsigned char*)"  pos (L|R) (p|d|i|w) <value>", (unsigned char*)"Sets P, D, I or anti-windup position value\r\n", io->stdOut);
+  CLS1_SendHelpStr((unsigned char*)"  dis (p|d|i|w) <value>", (unsigned char*)"Sets P, D, I or anti-windup position value\r\n", io->stdOut);
 }
 
 static void PrintPIDstatus(PID_Config *config, const unsigned char *kindStr, const CLS1_StdIOType *io) {
@@ -175,6 +187,7 @@ static void PID_PrintStatus(const CLS1_StdIOType *io) {
   PrintPIDstatus(&speedRightConfig, (unsigned char*)"speed R", io);
   PrintPIDstatus(&posLeftConfig, (unsigned char*)"pos L", io);
   PrintPIDstatus(&posRightConfig, (unsigned char*)"pos R", io);
+  PrintPIDstatus(&disConfig, (unsigned char*)"dis", io);
 }
 
 static uint8_t ParsePidParameter(PID_Config *config, const unsigned char *cmd, bool *handled, const CLS1_StdIOType *io) {
@@ -239,6 +252,8 @@ uint8_t PID_ParseCommand(const unsigned char *cmd, bool *handled, const CLS1_Std
 	    res = ParsePidParameter(&speedLeftConfig, cmd+sizeof("pid pos L ")-1, handled, io);
 	  } else if (UTIL1_strncmp((char*)cmd, (char*)"pid pos R ", sizeof("pid pos R ")-1)==0) {
 	    res = ParsePidParameter(&speedRightConfig, cmd+sizeof("pid pos R ")-1, handled, io);
+	  } else if (UTIL1_strncmp((char*)cmd, (char*)"pid dis ", sizeof("pid dis ")-1)==0) {
+		res = ParsePidParameter(&disConfig, cmd+sizeof("pid dis ")-1, handled, io);
 	  }
 	  return res;
 }
@@ -250,6 +265,10 @@ void PID_Start(void) {
   speedLeftConfig.integral = 0;
   speedRightConfig.lastError = 0;
   speedRightConfig.integral = 0;
+  posLeftConfig.lastError = 0;
+  posLeftConfig.integral = 0;
+  disConfig.lastError = 0;
+  disConfig.integral = 0;
 }
 
 void PID_Deinit(void) {
@@ -264,8 +283,8 @@ void PID_Init(void) {
   speedLeftConfig.lastError = 0;
   speedLeftConfig.integral = 0;
 
-  speedRightConfig.pFactor100 = 500;
-  speedRightConfig.iFactor100 = 50;
+  speedRightConfig.pFactor100 = 2000;
+  speedRightConfig.iFactor100 = 20;
   speedRightConfig.dFactor100 = 0;
   speedRightConfig.iAntiWindup = 100000;
   speedRightConfig.lastError = 0;
@@ -284,5 +303,12 @@ void PID_Init(void) {
   posRightConfig.iAntiWindup = 50;
   posRightConfig.lastError = 0;
   posRightConfig.integral = 0;
+
+  disConfig.pFactor100 = 1000;
+  disConfig.iFactor100 = 1;
+  disConfig.dFactor100 = 0;
+  disConfig.iAntiWindup = 100;
+  disConfig.lastError = 0;
+  disConfig.integral = 0;
 }
 #endif /* PL_HAS_PID */

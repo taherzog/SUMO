@@ -35,6 +35,12 @@ void DRV_EnableDisableSpeed(bool enable);
  */
 void DRV_EnableDisablePosition(bool enable);
 
+/*!
+ * \brief Enables or disbles the drive mode in DistanceMode.
+ * \param enable TRUE to enable, FALSE otherwise.
+ */
+void DRV_EnableDisableDistance(bool enable);
+
 
 /*!
  * \brief Sets the driving speed for left and right.
@@ -49,6 +55,13 @@ void DRV_SetSpeed(int32_t left, int32_t right);
  * \param right Right wheel position.
  */
 void DRV_SetPosition(int32_t left, int32_t right);
+
+/*!
+ * \brief Sets the distance
+ * \param left Left wheel position.
+ * \param right Right wheel position.
+ */
+void DRV_SetDistance(int32_t distance);
 
 /*! \brief Driver initialization */
 void DRV_Init(void);

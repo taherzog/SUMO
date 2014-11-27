@@ -39,6 +39,12 @@ uint16_t US_usToCentimeters(uint16_t microseconds, uint8_t temperatureCelsius);
  */
 uint16_t US_Measure_us(void);
 
+/*!
+ * \brief Measure milliseconds and return the centimeter
+ * \return Distance in [cm]
+ */
+uint16_t US_GetCentimeter(void);
+
 #if PL_HAS_SHELL
 #include "CLS1.h"
 /*!

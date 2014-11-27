@@ -3,8 +3,8 @@
   <Header>
     <Name>ATEAM_ROBO</Name>
     <SavedBy>pherzog</SavedBy>
-    <ModificationStamp>57</ModificationStamp>
-    <Date>2014-11-25</Date>
+    <ModificationStamp>58</ModificationStamp>
+    <Date>2014-11-27</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.10.0.RT6_b1428-0121</PEversion>
   </Header>
@@ -31155,7 +31155,7 @@
             </ItemState>
             <ItemState>
               <ItemSymbol>DividerInputFreq</ItemSymbol>
-              <Value>120 MHz</Value>
+              <Value>unknown</Value>
             </ItemState>
             <ItemState>
               <ItemSymbol>DividerClockFraction</ItemSymbol>
@@ -31185,7 +31185,7 @@
             </ItemState>
             <ItemState>
               <ItemSymbol>ModuleClockFreq</ItemSymbol>
-              <Value>48 MHz</Value>
+              <Value>unknown</Value>
             </ItemState>
             <ItemState>
               <ItemSymbol>PullUpDownGrp</ItemSymbol>

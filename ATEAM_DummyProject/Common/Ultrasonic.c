@@ -27,10 +27,29 @@ typedef struct {
   volatile US_EchoState state; /* state */
   TU_US_TValueType capture; /* input capture value */
   uint16_t lastValue_us; /* last captured echo, in us */
+  uint16_t lastValue_cm;
 } US_DeviceType;
 
 static US_DeviceType usDevice; /* device handle for the ultrasonic device */
 static xSemaphoreHandle mutexHandle;
+
+static portTASK_FUNCTION(UltrasonicTask, pvParameters) {
+	(void) pvParameters; /* parameter not used */
+
+
+
+	for (;;) {
+
+		/*! \todo extend this for your own needs and with a position PID */
+
+
+		usDevice.lastValue_us = US_Measure_us();
+		usDevice.lastValue_cm = US_usToCentimeters(usDevice.lastValue_us, 22);
+
+		FRTOS1_vTaskDelay(50/portTICK_RATE_MS);
+	} /* for */
+}
+
 
 void US_EventEchoOverflow(LDD_TUserData *UserDataPtr) {
   US_DeviceType *ptr = (US_DeviceType*)UserDataPtr;
@@ -94,7 +113,16 @@ uint16_t US_Measure_us(void) {
 }
 
 uint16_t US_GetLastCentimeterValue(void) {
-  return US_usToCentimeters(usDevice.lastValue_us, 22);
+  return usDevice.lastValue_cm;
+}
+
+uint16_t US_GetCentimeter(void)
+{
+	  uint16_t cm, us;
+
+	  us = US_Measure_us();
+	  cm = US_usToCentimeters(us, 22);
+	  return cm;
 }
 
 #if PL_HAS_SHELL
@@ -102,6 +130,8 @@ static void US_PrintHelp(const CLS1_StdIOType *io) {
   CLS1_SendHelpStr((unsigned char*)"ultrasonic", (unsigned char*)"Group of ultrasonic commands\r\n", io->stdOut);
   CLS1_SendHelpStr((unsigned char*)"  help|status", (unsigned char*)"Shows radio help or status\r\n", io->stdOut);
 }
+
+
 
 static void US_PrintStatus(const CLS1_StdIOType *io) {
   uint8_t buf[16];
@@ -146,5 +176,19 @@ void US_Init(void) {
   if (mutexHandle==NULL) {
     for(;;);
   }
+
+  if (FRTOS1_xTaskCreate(
+  			UltrasonicTask, /* pointer to the task */
+  			"Ultrasonic", /* task name for kernel awareness debugging */
+  			configMINIMAL_STACK_SIZE, /* task stack size */
+  			(void*)NULL, /* optional task startup argument */
+  			tskIDLE_PRIORITY, /* initial priority */
+  			(xTaskHandle*)NULL /* optional task handle to create */
+  	) != pdPASS) {
+  		/*lint -e527 */
+  		for (;;) {
+  		} /* error! probably out of memory */
+  		/*lint +e527 */
+  	}
 }
 #endif /* PL_HAS_ULTRASONIC */
