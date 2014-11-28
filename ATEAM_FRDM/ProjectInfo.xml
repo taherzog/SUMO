@@ -70,6 +70,7 @@
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\RNet_App.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\RTOS.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Reflectance.c</PathName>
+      <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Remote.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Sem.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Shell.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\ShellQueue.c</PathName>
@@ -78,8 +79,10 @@
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Timer.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Trigger.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Ultrasonic.c</PathName>
+      <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\AD1.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\AS1.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\ASerialLdd1.c</PathName>
+      <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\AdcLdd1.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\BUZ1.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\BitIoLdd1.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\BitIoLdd11.c</PathName>
@@ -183,6 +186,7 @@
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\RNet_AppConfig.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\RTOS.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Reflectance.h</PathName>
+      <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Remote.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Sem.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Shell.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\ShellQueue.h</PathName>
@@ -191,8 +195,10 @@
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Timer.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Trigger.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Common\Ultrasonic.h</PathName>
+      <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\AD1.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\AS1.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\ASerialLdd1.h</PathName>
+      <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\AdcLdd1.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\BUZ1.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\BitIoLdd1.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_FRDM\Generated_Code\BitIoLdd11.h</PathName>

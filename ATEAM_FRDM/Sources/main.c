@@ -55,6 +55,8 @@
 #include "BitIoLdd9.h"
 #include "SW7.h"
 #include "ExtIntLdd5.h"
+#include "AD1.h"
+#include "AdcLdd1.h"
 #include "PTE.h"
 #include "CLS1.h"
 #include "WAIT2.h"

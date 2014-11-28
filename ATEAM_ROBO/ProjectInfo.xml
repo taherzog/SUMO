@@ -70,6 +70,7 @@
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Common\RNet_App.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Common\RTOS.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Common\Reflectance.c</PathName>
+      <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Common\Remote.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Common\Sem.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Common\Shell.c</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Common\ShellQueue.c</PathName>
@@ -214,6 +215,7 @@
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Common\RNet_AppConfig.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Common\RTOS.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Common\Reflectance.h</PathName>
+      <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Common\Remote.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Common\Sem.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Common\Shell.h</PathName>
       <PathName>C:\Users\pherzog\Documents\0_Philipp\HSLU\HS14\INTRO\Git\SUMO\ATEAM_ROBO\Common\ShellQueue.h</PathName>

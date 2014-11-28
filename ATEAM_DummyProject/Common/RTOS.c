@@ -13,9 +13,13 @@
 #include "Event.h"
 #include "CLS1.h"
 #include "Keys.h"
+#include "Accel.h"
+#include "RApp.h"
 
 
 static portTASK_FUNCTION(HeartBeat, pvParameters) {
+	uint8_t test;
+	test = 8;
   for(;;) {
     LED1_Neg();
     vTaskDelay(500/portTICK_RATE_MS);

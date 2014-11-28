@@ -9,6 +9,7 @@
 
 #include "Platform.h"
 #if PL_HAS_RADIO
+#include "RNET1.h"
 #include "RNet_AppConfig.h"
 #include "RNetConf.h"
 #if RNET_CONFIG_REMOTE_STDIO
@@ -23,6 +24,7 @@
 #include "RPHY.h"
 #include "Shell.h"
 #include "Motor.h"
+#include "Drive.h"
 
 static RNWK_ShortAddrType APP_dstAddr = RNWK_ADDR_BROADCAST; /* destination node address */
 
@@ -33,6 +35,8 @@ typedef enum {
 } RNETA_State;
 
 static RNETA_State appState = RNETA_NONE;
+
+static int32_t SpeedLeft, SpeedRight;
 
 RNWK_ShortAddrType RNETA_GetDestAddr(void) {
   return APP_dstAddr;
@@ -65,7 +69,79 @@ static uint8_t HandleDataRxMessage(RAPP_MSG_Type type, uint8_t size, uint8_t *da
       CLS1_SendStr(buf, io->stdOut);
 #endif /* PL_HAS_SHELL */      
       return ERR_OK;
+
+
+
+    case RAPP_MSG_TYPE_ACCEL:
+    	*handled = TRUE;
+    	 val = *data; /* get data value */
+
+#if PL_HAS_SHELL
+      CLS1_SendStr((unsigned char*)"Data: ", io->stdOut);
+      CLS1_SendNum8u(val, io->stdOut);
+      CLS1_SendStr((unsigned char*)" from addr 0x", io->stdOut);
+      buf[0] = '\0';
+#if RNWK_SHORT_ADDR_SIZE==1
+      UTIL1_strcatNum8Hex(buf, sizeof(buf), srcAddr);
+#else
+      UTIL1_strcatNum16Hex(buf, sizeof(buf), srcAddr);
+#endif
+      UTIL1_strcat(buf, sizeof(buf), (unsigned char*)"\r\n");
+      CLS1_SendStr(buf, io->stdOut);
+#endif /* PL_HAS_SHELL */
+
+    case RAPP_MSG_TYPE_SPEED_R:
+        	*handled = TRUE;
+        	 val = *data; /* get data value */
+
+    #if PL_HAS_SHELL
+          CLS1_SendStr((unsigned char*)"Data: ", io->stdOut);
+          CLS1_SendNum8u(val, io->stdOut);
+          CLS1_SendStr((unsigned char*)" from addr 0x", io->stdOut);
+          buf[0] = '\0';
+    #if RNWK_SHORT_ADDR_SIZE==1
+          UTIL1_strcatNum8Hex(buf, sizeof(buf), srcAddr);
+    #else
+          UTIL1_strcatNum16Hex(buf, sizeof(buf), srcAddr);
+    #endif
+          UTIL1_strcat(buf, sizeof(buf), (unsigned char*)"\r\n");
+          CLS1_SendStr(buf, io->stdOut);
+    #endif /* PL_HAS_SHELL */
+
+          //Set Motor Speed right
+#if PL_HAS_DRIVE
+          SpeedRight = val*10;
+          DRV_EnableDisableSpeed(TRUE);
+          DRV_SetSpeed(SpeedLeft, SpeedRight);
+#endif
+
+    case RAPP_MSG_TYPE_SPEED_L:
+        	*handled = TRUE;
+        	 val = *data; /* get data value */
+
+    #if PL_HAS_SHELL
+          CLS1_SendStr((unsigned char*)"Data: ", io->stdOut);
+          CLS1_SendNum8u(val, io->stdOut);
+          CLS1_SendStr((unsigned char*)" from addr 0x", io->stdOut);
+          buf[0] = '\0';
+    #if RNWK_SHORT_ADDR_SIZE==1
+          UTIL1_strcatNum8Hex(buf, sizeof(buf), srcAddr);
+    #else
+          UTIL1_strcatNum16Hex(buf, sizeof(buf), srcAddr);
+    #endif
+          UTIL1_strcat(buf, sizeof(buf), (unsigned char*)"\r\n");
+          CLS1_SendStr(buf, io->stdOut);
+    #endif /* PL_HAS_SHELL */
+
+#if PL_HAS_DRIVE
+          //Set Motor Speed left
+          SpeedLeft = val * 10;
+          DRV_EnableDisableSpeed(TRUE);
+          DRV_SetSpeed(SpeedLeft, SpeedRight);
+#endif
+
     default: /*! \todo Handle your own messages here */
+
       break;
   } /* switch */
   return ERR_OK;
