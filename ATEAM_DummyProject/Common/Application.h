@@ -26,6 +26,13 @@
 	#include "RTOS.h"
 #endif
 
+/*!
+ * \brief Debug printing function
+ * \param str Debug string to print
+ */
+void APP_DebugPrint(unsigned char *str);
+
+
 
 /*
  * \brief Here start the main application.

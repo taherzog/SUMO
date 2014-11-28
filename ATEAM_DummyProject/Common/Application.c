@@ -21,6 +21,12 @@
 	#include "Accel.h"
 #endif
 
+void APP_DebugPrint(unsigned char *str) {
+#if PL_HAS_SHELL
+  CLS1_SendStr(str, CLS1_GetStdio()->stdOut);
+#endif
+}
+
 
 static uint8_t lastKeyPressed;
 static uint16_t freq = 500;

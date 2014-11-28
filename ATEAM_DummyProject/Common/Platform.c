@@ -65,6 +65,9 @@
 #if PL_HAS_ACCEL
 	#include "Accel.h"
 #endif
+#if PL_HAS_RADIO
+	#include "RNet_App.h"
+#endif
 
 void PL_Init(void){
 #if PL_HAS_LED
@@ -127,6 +130,9 @@ void PL_Init(void){
 #endif
 #if PL_HAS_ACCEL
 	ACCEL_Init();
+#endif
+#if PL_HAS_RADIO
+	RNETA_Init();
 #endif
 }
 
@@ -194,6 +200,9 @@ void PL_Deinit(void){
 #endif
 #if PL_HAS_ACCEL
 	ACCEL_Deinit();
+#endif
+#if PL_HAS_RADIO
+	RNETA_Deinit();
 #endif
 }
 

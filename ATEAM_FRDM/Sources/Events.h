@@ -39,8 +39,6 @@
 #include "BitIoLdd1.h"
 #include "LedBit2.h"
 #include "BitIoLdd2.h"
-#include "LedBit3.h"
-#include "BitIoLdd6.h"
 #include "WAIT1.h"
 #include "CS1.h"
 #include "HF1.h"
@@ -76,6 +74,17 @@
 #include "CDC1.h"
 #include "Tx1.h"
 #include "Rx1.h"
+#include "GI2C1.h"
+#include "I2C1.h"
+#include "MMA1.h"
+#include "RNET1.h"
+#include "RF1.h"
+#include "CE1.h"
+#include "BitIoLdd12.h"
+#include "CSN1.h"
+#include "BitIoLdd13.h"
+#include "SM1.h"
+#include "SMasterLdd1.h"
 
 
 #include "BitIoLdd1.h"
@@ -242,6 +251,19 @@ void FRTOS1_vApplicationMallocFailedHook(void);
 **     Description :
 **         If enabled, the RTOS will call this hook in case memory
 **         allocation failed.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void GI2C1_OnError(void);
+/*
+** ===================================================================
+**     Event       :  GI2C1_OnError (module Events)
+**
+**     Component   :  GI2C1 [GenericI2C]
+**     Description :
+**         Event called in case of error condition
 **     Parameters  : None
 **     Returns     : Nothing
 ** ===================================================================

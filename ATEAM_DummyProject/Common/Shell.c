@@ -52,6 +52,9 @@
 #if PL_HAS_ACCEL
 	#include "MMA1.h"
 #endif
+#if PL_HAS_RADIO
+	#include "RNET1.h"
+#endif
 
 static uint32_t SHELL_val; /* used as demo value for shell */
 
@@ -162,6 +165,9 @@ static const CLS1_ParseCommandCallback CmdParserTable[] =
 #if PL_HAS_ACCEL
 	MMA1_ParseCommand,
 #endif
+#if PL_HAS_RADIO
+	RNET1_ParseCommand,
+#endif
   NULL /* Sentinel */
 };
 
@@ -211,6 +217,10 @@ static portTASK_FUNCTION(ShellTask, pvParameters) {
 #if CLS1_DEFAULT_SERIAL
   CLS1_ConstStdIOTypePtr ioLocal = CLS1_GetStdio();  
 #endif
+#if RNET_CONFIG_REMOTE_STDIO
+  static unsigned char radio_cmd_buf[48];
+  CLS1_ConstStdIOType *ioRemote = RSTDIO_GetStdioRx();
+#endif
   
   //Initialization of the buffer, necessary, because the CLS1 only append to the buffer.
   (void)pvParameters; /* not used */
@@ -219,6 +229,9 @@ static portTASK_FUNCTION(ShellTask, pvParameters) {
 #endif
 #if PL_HAS_BLUETOOTH
   bluetooth_buf[0] = '\0';
+#endif
+#if RNET_CONFIG_REMOTE_STDIO
+  radio_cmd_buf[0] = '\0';
 #endif
   localConsole_buf[0] = '\0';
 #if CLS1_DEFAULT_SERIAL
@@ -235,6 +248,10 @@ static portTASK_FUNCTION(ShellTask, pvParameters) {
 #endif
 #if PL_HAS_BLUETOOTH
     (void)CLS1_ReadAndParseWithCommandTable(bluetooth_buf, sizeof(bluetooth_buf), &BT_stdio, CmdParserTable);
+#endif
+#if RNET_CONFIG_REMOTE_STDIO
+    RSTDIO_Print(ioLocal); /* dispatch incoming messages */
+    (void)CLS1_ReadAndParseWithCommandTable(radio_cmd_buf, sizeof(radio_cmd_buf), ioRemote, CmdParserTable);
 #endif
 #if PL_HAS_SHELL_QUEUE // Wieso braucht es Runde Klammern?
     {

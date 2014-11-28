@@ -34,17 +34,19 @@
 #define PL_HAS_USB_CDC				(1)		//Has CDC - communications device class
 #define PL_HAS_SHELL_QUEUE			(1)		//Use a queue to send datas over the shell resource
 #define PL_HAS_SEMAPHORE			(1)		//Use Semaphores on the platformw
-#define PL_HAS_LINE_SENSOR			(1)		//Has a Line-Sensor
-#define PL_HAS_MOTOR				(1)		//Has a Motor
-#define PL_HAS_QUAD_CALIBRATION		(0)		//Quad Calibration
-#define PL_HAS_MCP4728				(1)		//Has a Motor controller
-#define PL_IS_INTRO_ZUMO_K22_V2		(1)		//Uses the I2C Adresse 0x61 instead of 0x60
-#define PL_HAS_MOTOR_QUAD			(1)		//Use Counters for the Quadrature Encoders
-#define PL_HAS_MOTOR_TACHO			(1)		//Use a Tacho to measure the Speed
-#define PL_HAS_PID					(1)		//Use the PID Controller
-#define PL_HAS_DRIVE				(1)		//Use the Drive Component
-#define PL_HAS_ULTRASONIC			(1)		//Has a ultrasonic sensor to measure distances
-#define PL_HAS_ACCEL				(1)		//Use the accelormeter
+#define PL_HAS_LINE_SENSOR			(1 && PL_IS_ROBO)		//Has a Line-Sensor
+#define PL_HAS_MOTOR				(1 && PL_IS_ROBO)		//Has a Motor
+#define PL_HAS_QUAD_CALIBRATION		(0 && PL_IS_ROBO)		//Quad Calibration
+#define PL_HAS_MCP4728				(1 && PL_IS_ROBO)		//Has a Motor controller
+#define PL_IS_INTRO_ZUMO_K22_V2		(1)						//Uses the I2C Adresse 0x61 instead of 0x60
+#define PL_HAS_MOTOR_QUAD			(1 && PL_IS_ROBO)		//Use Counters for the Quadrature Encoders
+#define PL_HAS_MOTOR_TACHO			(1 && PL_IS_ROBO)		//Use a Tacho to measure the Speed
+#define PL_HAS_PID					(1 && PL_IS_ROBO)		//Use the PID Controller
+#define PL_HAS_DRIVE				(1 && PL_IS_ROBO)		//Use the Drive Component
+#define PL_HAS_ULTRASONIC			(1 && PL_IS_ROBO)		//Has a ultrasonic sensor to measure distances
+#define PL_HAS_ACCEL				(1)						//Use the accelormeter
+#define PL_HAS_RADIO				(1)						//Use the NRF Module
+
 
 
 /* additional hardware configuration */
@@ -65,7 +67,7 @@
 
 #if PL_IS_FRDM
   #if PL_HAS_JOYSTICK
-    #define PL_NOF_LEDS       (2)
+    #define PL_NOF_LEDS       (1)
       /*!< FRDM board has 2 LEDs (red is used by joystick shield) */
     #define PL_NOF_KEYS       (7)
        /*!< FRDM board has no keys without joystick shield */
