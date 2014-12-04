@@ -9,31 +9,49 @@
 #include "FRTOS1.h"
 #include "Accel.h"
 #include "RApp.h"
-#include "AD1.h"
+//#include "AD1.h"
 #include "Drive.h"
 
 static portTASK_FUNCTION(RemoteTask, pvParameters) {
 	(void) pvParameters; /* parameter not used */
-	int16_t x;
-	int16_t y;
-	int16_t z;
+	uint8_t x;
+	uint8_t y;
+	uint8_t z;
+	Accel_Values acc_values;
+	uint8_t speedR;
+	uint8_t speedL;
+
 	int8_t ADC_X;
 
 
 	for (;;) {
-		ACCEL_GetValues(&x, &y, &z);
-		x =  x / 5;
-		y =  y / 5;
-		z =  z / 5;
+		ACCEL_GetValues(&acc_values.x, &acc_values.y, &acc_values.z);
 
-		RAPP_SendPayloadDataBlock(&x, sizeof(x), RAPP_MSG_TYPE_ACCEL, 255, RPHY_PACKET_FLAGS_NONE);
+		//Normalize the values to
+		x =  (uint8_t)(acc_values.x / 10 + 128);
+		y =  (uint8_t)(acc_values.y / 10 + 128);
+
+		if (y > 128)
+		{
+			speedR = y - (x-128)/2;
+			speedL = y + (x-128)/2;
+		}
+		else
+		{
+			speedR = y + (x-128)/2;
+			speedL = y - (x-128)/2;
+		}
+
+
+		RAPP_SendPayloadDataBlock(&speedR, sizeof(speedR), RAPP_MSG_TYPE_SPEED_R, 255, RPHY_PACKET_FLAGS_NONE);
+		FRTOS1_vTaskDelay(50/portTICK_RATE_MS);
+		RAPP_SendPayloadDataBlock(&speedL, sizeof(speedL), RAPP_MSG_TYPE_SPEED_L, 255, RPHY_PACKET_FLAGS_NONE);
 		//AD1_Measure(TRUE);
 		//AD1_GetChanValue8(0,&ADC_X);
 
 		FRTOS1_vTaskDelay(50/portTICK_RATE_MS);
 	} /* for */
 }
-
 
 
 void RE_Init(void) {

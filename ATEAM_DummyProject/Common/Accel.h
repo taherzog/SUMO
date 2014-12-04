@@ -9,6 +9,16 @@
 
 #include "Platform.h"
 
+/*!
+ * Struct to store the values in
+ */
+typedef struct
+{
+	int16_t x;
+	int16_t y;
+	int16_t z;
+}Accel_Values;
+
 #if PL_HAS_ACCEL
 /*!
  * \brief Returns the current accelerometer sensor values

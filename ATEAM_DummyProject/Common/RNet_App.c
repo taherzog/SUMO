@@ -25,6 +25,7 @@
 #include "Shell.h"
 #include "Motor.h"
 #include "Drive.h"
+#include "Accel.h"
 
 static RNWK_ShortAddrType APP_dstAddr = RNWK_ADDR_BROADCAST; /* destination node address */
 
@@ -48,10 +49,13 @@ static uint8_t HandleDataRxMessage(RAPP_MSG_Type type, uint8_t size, uint8_t *da
   CLS1_ConstStdIOTypePtr io = CLS1_GetStdio();
 #endif
   uint8_t val;
+  Accel_Values accel_values;
   
+
   (void)size;
   (void)packet;
   switch(type) {
+
     case RAPP_MSG_TYPE_DATA: /* generic data message */
       *handled = TRUE;
       val = *data; /* get data value */
@@ -70,12 +74,14 @@ static uint8_t HandleDataRxMessage(RAPP_MSG_Type type, uint8_t size, uint8_t *da
 #endif /* PL_HAS_SHELL */      
       return ERR_OK;
 
-
-
+#if PL_HAS_RE_ACCEL
     case RAPP_MSG_TYPE_ACCEL:
     	*handled = TRUE;
-    	 val = *data; /* get data value */
-
+    	val = *data;
+    	//data = (int16_t*)data;
+    	//accel_values.x = *((data+0)); /* get data value */
+    	//accel_values.y = *((data+2)); /* get data value */
+    	//accel_values.z = *((data+4)); /* get data value */
 #if PL_HAS_SHELL
       CLS1_SendStr((unsigned char*)"Data: ", io->stdOut);
       CLS1_SendNum8u(val, io->stdOut);
@@ -89,6 +95,9 @@ static uint8_t HandleDataRxMessage(RAPP_MSG_Type type, uint8_t size, uint8_t *da
       UTIL1_strcat(buf, sizeof(buf), (unsigned char*)"\r\n");
       CLS1_SendStr(buf, io->stdOut);
 #endif /* PL_HAS_SHELL */
+#endif /*PL_HAS_RE_ACCEL*/
+      return ERR_OK;
+
 
     case RAPP_MSG_TYPE_SPEED_R:
         	*handled = TRUE;
@@ -110,10 +119,11 @@ static uint8_t HandleDataRxMessage(RAPP_MSG_Type type, uint8_t size, uint8_t *da
 
           //Set Motor Speed right
 #if PL_HAS_DRIVE
-          SpeedRight = val*10;
+          SpeedRight = (val-128) * 10;
           DRV_EnableDisableSpeed(TRUE);
           DRV_SetSpeed(SpeedLeft, SpeedRight);
 #endif
+          return ERR_OK;
 
     case RAPP_MSG_TYPE_SPEED_L:
         	*handled = TRUE;
@@ -135,10 +145,11 @@ static uint8_t HandleDataRxMessage(RAPP_MSG_Type type, uint8_t size, uint8_t *da
 
 #if PL_HAS_DRIVE
           //Set Motor Speed left
-          SpeedLeft = val * 10;
+          SpeedLeft = (val-128) * 10;
           DRV_EnableDisableSpeed(TRUE);
           DRV_SetSpeed(SpeedLeft, SpeedRight);
 #endif
+          return ERR_OK;
 
     default: /*! \todo Handle your own messages here */
 
@@ -220,7 +231,7 @@ void RNETA_Init(void) {
   if (FRTOS1_xTaskCreate(
         RadioTask,  /* pointer to the task */
         "Radio", /* task name for kernel awareness debugging */
-        configMINIMAL_STACK_SIZE+50, /* task stack size */
+        configMINIMAL_STACK_SIZE+100, /* task stack size */
         (void*)NULL, /* optional task startup argument */
         tskIDLE_PRIORITY+3,  /* initial priority */
         (xTaskHandle*)NULL /* optional task handle to create */

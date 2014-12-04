@@ -46,7 +46,9 @@
 #define PL_HAS_ULTRASONIC			(1 && PL_IS_ROBO)		//Has a ultrasonic sensor to measure distances
 #define PL_HAS_RADIO				(1)						//Use the NRF Module
 #define PL_HAS_ACCEL				(1)						//Use the accelormeter
-#define PL_HAS_REMOTE				(1)						//Use the FreedomBoard as Joystick
+#define PL_HAS_REMOTE				(1 && PL_IS_FRDM)		//Use the FreedomBoard as Joystick
+#define PL_HAS_RE_ACCEL				(1)						//Use the Accelometer for Control
+#define PL_HAS_RE_JOY				(0)						//Use the Joystick for Control
 /* additional hardware configuration */
 
 /* if keys are using interrupts or are polled */
