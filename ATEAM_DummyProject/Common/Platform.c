@@ -71,6 +71,9 @@
 #if PL_HAS_REMOTE
 	#include "Remote.h"
 #endif
+#if PL_HAS_CONFIG_NVM
+	#include "NVM_Config.h"
+#endif
 
 void PL_Init(void){
 #if PL_HAS_LED
@@ -139,6 +142,9 @@ void PL_Init(void){
 #endif
 #if PL_HAS_REMOTE
 	RE_Init();
+#endif
+#if PL_HAS_CONFIG_NVM
+	NVMC_Init();
 #endif
 }
 
@@ -212,6 +218,9 @@ void PL_Deinit(void){
 #endif
 #if PL_HAS_REMOTE
 	RE_Deinit();
+#endif
+#if PL_HAS_CONFIG_NVM
+	NVMC_Deinit();
 #endif
 }
 

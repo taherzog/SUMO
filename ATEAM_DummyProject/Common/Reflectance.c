@@ -27,6 +27,10 @@
 #include "Shell.h"
 #include "BUZ1.h"
 
+#if PL_HAS_CONFIG_NVM
+#include "NVM_Config.h"
+#endif
+
 #define REF_NOF_SENSORS 6 /* number of sensors */
 
 typedef enum {
@@ -290,11 +294,30 @@ byte REF_ParseCommand(const unsigned char *cmd, bool *handled, const CLS1_StdIOT
 
 static void REF_StateMachine(void) {
   int i;
+  SensorCalibT *SensorCalibMinMaxPtr;
 
   switch (refState) {
     case REF_STATE_INIT:
-      SHELL_SendString((unsigned char*)"INFO: No calibration data present.\r\n");
-      refState = REF_STATE_NOT_CALIBRATED;
+
+#if PL_HAS_CONFIG_NVM
+
+
+    	SensorCalibMinMaxPtr=(SensorCalibT*)NVMC_GetReflectanceData();
+    	    	if(&SensorCalibMinMax != NULL)
+    	    	{
+    	    		SensorCalibMinMax = *SensorCalibMinMaxPtr;
+    	    		SHELL_SendString((unsigned char*)"Loaded Calibration from Flash\r\n");
+    	    		refState = REF_STATE_READY;
+    	    	}
+    	    	else
+    	    	{
+    	    		SHELL_SendString((unsigned char*)"INFO: No calibration data present.\r\n");
+    	    		refState = REF_STATE_NOT_CALIBRATED;
+    	    	}
+
+#endif
+
+
       break;
       
     case REF_STATE_NOT_CALIBRATED:
@@ -328,6 +351,10 @@ static void REF_StateMachine(void) {
     
     case REF_STATE_STOP_CALIBRATION:
       SHELL_SendString((unsigned char*)"...stopping calibration. Next Ready State\r\n");
+      if(!NVMC_SaveReflectanceData(&SensorCalibMinMax, sizeof(SensorCalibMinMax)))
+      {
+    	  SHELL_SendString((unsigned char*)"Stored Calibration to the FLASH!\r\n");
+      }
       refState = REF_STATE_READY;
       break;
         

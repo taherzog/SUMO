@@ -47,8 +47,9 @@
 #define PL_HAS_RADIO				(1)						//Use the NRF Module
 #define PL_HAS_ACCEL				(1)						//Use the accelormeter
 #define PL_HAS_REMOTE				(1 && PL_IS_FRDM)		//Use the FreedomBoard as Joystick
-#define PL_HAS_RE_ACCEL				(1)						//Use the Accelometer for Control
-#define PL_HAS_RE_JOY				(0)						//Use the Joystick for Control
+#define PL_HAS_RE_ACCEL				(1 && PL_IS_FRDM)		//Use the Accelometer for Control
+#define PL_HAS_RE_JOY				(0 && PL_IS_FRDM)		//Use the Joystick for Control
+#define PL_HAS_CONFIG_NVM			(1 && PL_IS_ROBO)		//Store the Reflectance data
 /* additional hardware configuration */
 
 /* if keys are using interrupts or are polled */

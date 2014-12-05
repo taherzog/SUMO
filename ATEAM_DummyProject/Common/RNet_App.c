@@ -27,6 +27,8 @@
 #include "Drive.h"
 #include "Accel.h"
 
+#define MAX_SPEED  3000
+
 static RNWK_ShortAddrType APP_dstAddr = RNWK_ADDR_BROADCAST; /* destination node address */
 
 typedef enum {
@@ -119,7 +121,7 @@ static uint8_t HandleDataRxMessage(RAPP_MSG_Type type, uint8_t size, uint8_t *da
 
           //Set Motor Speed right
 #if PL_HAS_DRIVE
-          SpeedRight = (val-128) * 10;
+          SpeedRight = (val-128) * (MAX_SPEED/128);
           DRV_EnableDisableSpeed(TRUE);
           DRV_SetSpeed(SpeedLeft, SpeedRight);
 #endif
@@ -145,7 +147,7 @@ static uint8_t HandleDataRxMessage(RAPP_MSG_Type type, uint8_t size, uint8_t *da
 
 #if PL_HAS_DRIVE
           //Set Motor Speed left
-          SpeedLeft = (val-128) * 10;
+          SpeedLeft = (val-128) * (MAX_SPEED/128);
           DRV_EnableDisableSpeed(TRUE);
           DRV_SetSpeed(SpeedLeft, SpeedRight);
 #endif
