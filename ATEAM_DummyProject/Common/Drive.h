@@ -50,6 +50,12 @@ void DRV_EnableDisableDistance(bool enable);
 void DRV_SetSpeed(int32_t left, int32_t right);
 
 /*!
+ * \brief Turn the Roboter with a angle
+ * \param angle to be made (can be negative)
+ */
+void DRV_SetAngle(int32_t angle);
+
+/*!
  * \brief Sets the position for left and right motor
  * \param left Left wheel position.
  * \param right Right wheel position.

@@ -58,6 +58,7 @@
 #endif
 #if PL_HAS_DRIVE
 	#include "Drive.h"
+	#include "Pid.h"
 #endif
 #if PL_HAS_ULTRASONIC
 	#include "Ultrasonic.h"
@@ -73,6 +74,9 @@
 #endif
 #if PL_HAS_CONFIG_NVM
 	#include "NVM_Config.h"
+#endif
+#if PL_HAS_FIGHT_MODE
+	#include "Fight.h"
 #endif
 
 void PL_Init(void){
@@ -145,6 +149,9 @@ void PL_Init(void){
 #endif
 #if PL_HAS_CONFIG_NVM
 	NVMC_Init();
+#endif
+#if PL_HAS_FIGHT_MODE
+	FIGHT_Init();
 #endif
 }
 
@@ -221,6 +228,9 @@ void PL_Deinit(void){
 #endif
 #if PL_HAS_CONFIG_NVM
 	NVMC_Deinit();
+#endif
+#if PL_HAS_FIGHT_MODE
+	FIGHT_Deinit();
 #endif
 }
 

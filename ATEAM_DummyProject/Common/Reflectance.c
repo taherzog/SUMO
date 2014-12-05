@@ -27,11 +27,19 @@
 #include "Shell.h"
 #include "BUZ1.h"
 
+#if PL_HAS_DRIVE
+	#include "Drive.h"
+#endif
+#if PL_HAS_FIGHT_MODE
+	#include "Fight.h"
+#endif
+
 #if PL_HAS_CONFIG_NVM
 #include "NVM_Config.h"
 #endif
 
 #define REF_NOF_SENSORS 6 /* number of sensors */
+#define REF_THRESHOLD 500
 
 typedef enum {
   REF_STATE_INIT,
@@ -41,9 +49,11 @@ typedef enum {
   REF_STATE_STOP_CALIBRATION,
   REF_STATE_READY
 } RefStateType;
+
 static volatile RefStateType refState = REF_STATE_INIT; /* state machine state */
 
 static LDD_TDeviceData *timerHandle;
+static bool LineDetected;
 
 typedef struct SensorFctType_ {
   void (*SetOutput)(void);
@@ -294,6 +304,7 @@ byte REF_ParseCommand(const unsigned char *cmd, bool *handled, const CLS1_StdIOT
 
 static void REF_StateMachine(void) {
   int i;
+  int Sum;
   SensorCalibT *SensorCalibMinMaxPtr;
 
   switch (refState) {
@@ -360,13 +371,44 @@ static void REF_StateMachine(void) {
         
     case REF_STATE_READY:
       REF_Measure();
-      if (EVNT_EventIsSet(EVNT_REF_START_STOP_CALIBRATION)) {
-        EVNT_ClearEvent(EVNT_REF_START_STOP_CALIBRATION);
-        refState = REF_STATE_START_CALIBRATION;
+      Sum = 0;
+      //Check if we have detected a line.
+      for (i=0;i<REF_NOF_SENSORS;i++) {
+    	  Sum = Sum + SensorCalibrated[i];
       }
+          if ((Sum < REF_THRESHOLD*REF_NOF_SENSORS) && !LineDetected)
+          {
+			#if PL_HAS_FIGHT_MODE
+        	//Immediately turn off the Motors and set a flag
+        	  SHELL_SendString((unsigned char*)"Line Detected!\r\n");
+        	  FIGHT_SetState(FIGHT_STATE_LINEDETECTED);
+				#endif
+        	  LineDetected = TRUE;
+          }
+          else
+          {
+        	  if(Sum < REF_THRESHOLD*REF_NOF_SENSORS)
+        	  {
+        		  LineDetected = TRUE;
+        	  }
+        	  else
+        	  {
+        		  LineDetected = FALSE;
+        	  }
+
+          }
+
+          if (EVNT_EventIsSet(EVNT_REF_START_STOP_CALIBRATION))
+          {
+        	  EVNT_ClearEvent(EVNT_REF_START_STOP_CALIBRATION);
+        	  refState = REF_STATE_START_CALIBRATION;
+          }
+
+
       break;
   } /* switch */
 }
+
 
 static portTASK_FUNCTION(ReflTask, pvParameters) {
   (void)pvParameters; /* not used */

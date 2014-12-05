@@ -121,9 +121,9 @@ void PID_PosCfg(int32_t currPos, int32_t setPos, bool isLeft, PID_Config *config
 void PID_Pos(int32_t currPos, int32_t setPos, bool isLeft) {
 	//Select Configuration for the correct side.
 	if (isLeft) {
-	    PID_PosCfg(currPos, setPos, isLeft, &disConfig);
+	    PID_PosCfg(currPos, setPos, isLeft, &posLeftConfig);
 	  } else {
-	    PID_PosCfg(currPos, setPos, isLeft, &disConfig);
+	    PID_PosCfg(currPos, setPos, isLeft, &posRightConfig);
 	  }
 }
 
@@ -290,17 +290,17 @@ void PID_Init(void) {
   speedRightConfig.lastError = 0;
   speedRightConfig.integral = 0;
 
-  posLeftConfig.pFactor100 = 2;
+  posLeftConfig.pFactor100 = 1;
   posLeftConfig.iFactor100 = 1;
   posLeftConfig.dFactor100 = 0;
-  posLeftConfig.iAntiWindup = 50;
+  posLeftConfig.iAntiWindup = 100;
   posLeftConfig.lastError = 0;
   posLeftConfig.integral = 0;
 
-  posRightConfig.pFactor100 = 2;
+  posRightConfig.pFactor100 = 1;
   posRightConfig.iFactor100 = 1;
   posRightConfig.dFactor100 = 0;
-  posRightConfig.iAntiWindup = 50;
+  posRightConfig.iAntiWindup = 100;
   posRightConfig.lastError = 0;
   posRightConfig.integral = 0;
 

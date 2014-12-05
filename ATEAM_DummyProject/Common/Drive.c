@@ -12,6 +12,7 @@
 #include "Pid.h"
 #include "Tacho.h"
 #include "Motor.h"
+
 #if PL_HAS_RTOS_TRACE
 	#include "RTOSTRC1.h"
 #endif
@@ -26,6 +27,8 @@ static volatile bool DRV_DisOn = FALSE;
 static int32_t DRV_SpeedLeft, DRV_SpeedRight;
 static int32_t DRV_PosLeft, DRV_PosRight;
 static int32_t DRV_Dis;
+
+#define DRV_STEPS_PER_DEGREE (10)
 
 void DRV_EnableDisableSpeed(bool enable) {
 	DRV_SpeedOn = enable;
@@ -45,8 +48,14 @@ void DRV_SetSpeed(int32_t left, int32_t right) {
 }
 
 void DRV_SetPosition(int32_t left, int32_t right) {
-	DRV_PosLeft = left;
-	DRV_PosRight = right;
+	DRV_PosLeft = left + DRV_PosLeft;
+	DRV_PosRight = right + DRV_PosRight;
+}
+
+void DRV_SetAngle(int32_t angle)
+{
+	DRV_PosLeft = DRV_PosLeft + angle*DRV_STEPS_PER_DEGREE;
+	DRV_PosRight = DRV_PosRight - angle*DRV_STEPS_PER_DEGREE;
 }
 
 void DRV_SetDistance(int32_t distance) {
@@ -158,6 +167,8 @@ static void DRV_PrintHelp(const CLS1_StdIOType *io) {
 				(unsigned char*) "Regulate the distance on or ff\r\n", io->stdOut);
 	CLS1_SendHelpStr((unsigned char*) "  distance LR <value>",
 				(unsigned char*) "Sets distance from ultrasonic in cm value\r\n", io->stdOut);
+	CLS1_SendHelpStr((unsigned char*) "  angle <value>",
+				(unsigned char*) "Turn the Car with the angle\r\n", io->stdOut);
 
 }
 
@@ -197,7 +208,7 @@ uint8_t DRV_ParseCommand(const unsigned char *cmd, bool *handled,
 			sizeof("drive position L") - 1) == 0) {
 		p = cmd + sizeof("drive position L");
 		if (UTIL1_ScanDecimal32sNumber(&p, &val32) == ERR_OK) {
-			DRV_PosLeft = val32;
+			DRV_PosLeft = val32+DRV_PosLeft;
 			*handled = TRUE;
 		} else {
 			res = ERR_FAILED;
@@ -206,7 +217,7 @@ uint8_t DRV_ParseCommand(const unsigned char *cmd, bool *handled,
 			sizeof("drive position R") - 1) == 0) {
 		p = cmd + sizeof("drive position R");
 		if (UTIL1_ScanDecimal32sNumber(&p, &val32) == ERR_OK) {
-			DRV_PosRight = val32;
+			DRV_PosRight = val32 + DRV_PosRight;
 			*handled = TRUE;
 		} else {
 			res = ERR_FAILED;
@@ -220,6 +231,15 @@ uint8_t DRV_ParseCommand(const unsigned char *cmd, bool *handled,
 			} else {
 				res = ERR_FAILED;
 			}
+	} else if (UTIL1_strncmp((char* )cmd, (char* )"drive angle",
+					sizeof("drive angle") - 1) == 0) {
+				p = cmd + sizeof("drive angle");
+				if (UTIL1_ScanDecimal32sNumber(&p, &val32) == ERR_OK) {
+					DRV_SetAngle(val32);
+					*handled = TRUE;
+				} else {
+					res = ERR_FAILED;
+				}
 	} else if (UTIL1_strcmp((char*)cmd, (char*)"drive speed on") == 0) {
 		DRV_EnableDisableSpeed(TRUE);
 		DRV_EnableDisablePosition(FALSE);
@@ -257,8 +277,10 @@ void DRV_Init(void) {
 	DRV_EnableDisablePosition(FALSE);
 	DRV_SpeedLeft = 0;
 	DRV_SpeedRight = 0;
-	DRV_PosLeft = 0;
-	DRV_PosRight = 0;
+	DRV_PosLeft = 30000;
+	DRV_PosRight = 30000;
+	Q4CLeft_SetPos(30000);
+	Q4CRight_SetPos(30000);
 
 	if (FRTOS1_xTaskCreate(
 			DriveTask, /* pointer to the task */

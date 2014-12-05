@@ -50,6 +50,8 @@
 #define PL_HAS_RE_ACCEL				(1 && PL_IS_FRDM)		//Use the Accelometer for Control
 #define PL_HAS_RE_JOY				(0 && PL_IS_FRDM)		//Use the Joystick for Control
 #define PL_HAS_CONFIG_NVM			(1 && PL_IS_ROBO)		//Store the Reflectance data
+#define PL_HAS_FIGHT_MODE			(1 && PL_IS_ROBO)		//Enable the Fight Mode
+
 /* additional hardware configuration */
 
 /* if keys are using interrupts or are polled */
