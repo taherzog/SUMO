@@ -5,6 +5,9 @@
  *      Author: pherzog
  */
 
+#include "Platform.h"
+
+#if PL_HAS_REMOTE
 #include "Remote.h"
 #include "FRTOS1.h"
 #include "Accel.h"
@@ -13,6 +16,7 @@
 #if PL_HAS_RE_JOY
 #include "AD1.h"
 #endif
+
 
 static portTASK_FUNCTION(RemoteTask, pvParameters) {
 	(void) pvParameters; /* parameter not used */
@@ -70,8 +74,6 @@ static portTASK_FUNCTION(RemoteTask, pvParameters) {
 
 
 
-
-
 		RAPP_SendPayloadDataBlock(&speedR, sizeof(speedR), RAPP_MSG_TYPE_SPEED_R, 255, RPHY_PACKET_FLAGS_NONE);
 		RAPP_SendPayloadDataBlock(&speedL, sizeof(speedL), RAPP_MSG_TYPE_SPEED_L, 255, RPHY_PACKET_FLAGS_NONE);
 		//AD1_Measure(TRUE);
@@ -103,3 +105,4 @@ void RE_Deinit(void) {
 
 }
 
+#endif

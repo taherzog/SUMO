@@ -54,6 +54,7 @@ typedef enum EVNT_Handle {
   EVNT_SW7_RELEASED,
 #endif
   EVNT_REF_START_STOP_CALIBRATION,
+  EVNT_FIGHT_START,
   EVNT_NOF_EVENTS       /*!< Must be last one! */
 } EVNT_Handle;
 

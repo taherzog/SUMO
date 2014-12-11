@@ -12,6 +12,7 @@
 #include "TRIG.h"
 #include "UTIL1.h"
 #include "FRTOS1.h"
+#include "CS1.h"
 
 typedef enum {
   ECHO_IDLE, /* device not used */
@@ -40,11 +41,15 @@ static portTASK_FUNCTION(UltrasonicTask, pvParameters) {
 
 	for (;;) {
 
+
 		/*! \todo extend this for your own needs and with a position PID */
 
 
 		usDevice.lastValue_us = US_Measure_us();
+		CS1_CriticalVariable();
+		CS1_EnterCritical();
 		usDevice.lastValue_cm = US_usToCentimeters(usDevice.lastValue_us, 22);
+		CS1_ExitCritical();
 
 		FRTOS1_vTaskDelay(50/portTICK_RATE_MS);
 	} /* for */
@@ -113,7 +118,12 @@ uint16_t US_Measure_us(void) {
 }
 
 uint16_t US_GetLastCentimeterValue(void) {
-  return usDevice.lastValue_cm;
+
+	CS1_CriticalVariable();
+	CS1_EnterCritical();
+	uint16_t cm = usDevice.lastValue_cm;
+	CS1_ExitCritical();
+	return cm;
 }
 
 uint16_t US_GetCentimeter(void)

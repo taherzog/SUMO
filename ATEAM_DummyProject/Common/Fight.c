@@ -13,41 +13,45 @@
 #include "Buzzer.h"
 #include "BUZ1.h"
 #include "Ultrasonic.h"
+#include "Accel.h"
 
 
 
 static volatile FightStateType fightState = FIGHT_STATE_IDLE;
 int16_t distance;
+static int16_t x,y,z;
 
 static void FIGHT_StateMachine(void) {
 
 switch(fightState)
 {
 	case FIGHT_STATE_IDLE:
-		FIGHT_SetState(FIGHT_STATE_COUNTDOWN);
+		FRTOS1_vTaskDelay(100/portTICK_RATE_MS);
 	break;
 
 	case FIGHT_STATE_COUNTDOWN:
-		BUZ_Beep(2000,1000);
-		FRTOS1_vTaskDelay(1000/portTICK_RATE_MS);
+		for(int i = 2; i < 50; i ++)
+		{
+			BUZ_Beep((i)*20,50);
+			FRTOS1_vTaskDelay(100/portTICK_RATE_MS);
+		}
 		FIGHT_SetState(FIGHT_STATE_RUN);
-
 	break;
 
 	case FIGHT_STATE_RUN:
-		DRV_SetSpeed(-1500,2000);
+		DRV_SetSpeed(500,3500);
 		DRV_EnableDisableSpeed(TRUE);
-		distance = US_GetCentimeter();
-		if(distance < 30)
+		distance = US_GetLastCentimeterValue();
+		if(distance < 60 && distance != 0)
 		{
 			FIGHT_SetState(FIGHT_STATE_BOOST);
 		}
 	break;
 
 	case FIGHT_STATE_BOOST:
-		DRV_SetSpeed(3000,3000);
+		DRV_SetSpeed(8000,8000);
 		DRV_EnableDisableSpeed(TRUE);
-		if (US_GetCentimeter() > 30)
+		if (US_GetLastCentimeterValue() > 50)
 		{
 			FIGHT_SetState(FIGHT_STATE_RUN);
 		}
@@ -60,16 +64,43 @@ switch(fightState)
 		FIGHT_SetState(FIGHT_STATE_RUN);
 		break;
 
-}
+	case FIGHT_STATE_UPSIDEDOWN:
+		DRV_EnableDisableSpeed(FALSE);
+		DRV_SetSpeed(0,0);
+		if(z > 500)
+		{
+			FIGHT_SetState(FIGHT_STATE_RUN);
+		}
+		break;
 
 }
 
+
+
+}
+
+void CheckAccel(void)
+{
+	ACCEL_GetValues(&x, &y, &z);
+	if (z < -200)
+	{
+		FIGHT_SetState(FIGHT_STATE_UPSIDEDOWN);
+	}
+}
 
 static portTASK_FUNCTION(FightTask, pvParameters) {
   (void)pvParameters; /* not used */
   for(;;) {
     FIGHT_StateMachine();
     FRTOS1_vTaskDelay(10/portTICK_RATE_MS);
+  }
+}
+
+static portTASK_FUNCTION(AccelTask, pvParameters) {
+  (void)pvParameters; /* not used */
+  for(;;) {
+    CheckAccel();
+    FRTOS1_vTaskDelay(500/portTICK_RATE_MS);
   }
 }
 
@@ -80,7 +111,11 @@ static FightStateType FIGHT_GetState()
 
 void FIGHT_SetState(FightStateType fight)
 {
-	fightState = fight;
+	if(fightState != FIGHT_STATE_IDLE || fight == FIGHT_STATE_COUNTDOWN)
+	{
+		fightState = fight;
+	}
+
 }
 
 void FIGHT_Init(void)
@@ -89,6 +124,9 @@ void FIGHT_Init(void)
   if (FRTOS1_xTaskCreate(FightTask, "Fight", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL) != pdPASS) {
     for(;;){} /* error */
   }
+  if (FRTOS1_xTaskCreate(AccelTask, "Accel", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL) != pdPASS) {
+      for(;;){} /* error */
+    }
 }
 
 void FIGHT_Deinit(void)

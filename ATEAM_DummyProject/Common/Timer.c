@@ -27,7 +27,7 @@
 
 void TMR_OnInterrupt(void) {
   /* this one gets called from an interrupt!!!! */
-  #if PL_HAS_TRIGGER
+ #if PL_HAS_TRIGGER
   TRG_IncTick();
 #endif
 

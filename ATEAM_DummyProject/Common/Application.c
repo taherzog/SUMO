@@ -20,6 +20,9 @@
 #if PL_HAS_ACCEL
 	#include "Accel.h"
 #endif
+#if PL_HAS_FIGHT_MODE
+	#include "Fight.h"
+#endif
 
 void APP_DebugPrint(unsigned char *str) {
 #if PL_HAS_SHELL
@@ -54,11 +57,11 @@ static void APP_EventHandler(EVNT_Handle event) {
       LED1_On();
       vTaskDelay(50/portTICK_RATE_MS);
       LED1_Off();
-      EVNT_SetEvent(EVNT_REF_START_STOP_CALIBRATION);
-#if PL_HAS_BUZZER
-      //BUZ_Beep(1000, 2000);
-#endif
+      //EVNT_SetEvent(EVNT_REF_START_STOP_CALIBRATION);
+#if PL_HAS_FIGHT_MODE
+      FIGHT_SetState(FIGHT_STATE_COUNTDOWN);
       break;
+#endif
 
 #if PL_HAS_LINE_SENSOR
     case EVNT_REF_START_STOP_CALIBRATION: //Create event again, because the event is handled in the "Reflectance.c" directly.
