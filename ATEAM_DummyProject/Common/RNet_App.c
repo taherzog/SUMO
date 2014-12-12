@@ -27,7 +27,7 @@
 #include "Drive.h"
 #include "Accel.h"
 
-#define MAX_SPEED  3000
+#define MAX_SPEED  6000
 
 static RNWK_ShortAddrType APP_dstAddr = RNWK_ADDR_BROADCAST; /* destination node address */
 

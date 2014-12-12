@@ -36,10 +36,13 @@ switch(fightState)
 			FRTOS1_vTaskDelay(100/portTICK_RATE_MS);
 		}
 		FIGHT_SetState(FIGHT_STATE_RUN);
+		DRV_SetSpeed(2000,2000);
+		DRV_EnableDisableSpeed(TRUE);
+		FRTOS1_vTaskDelay(500/portTICK_RATE_MS);
 	break;
 
 	case FIGHT_STATE_RUN:
-		DRV_SetSpeed(500,3500);
+		DRV_SetSpeed(-2000,2000);
 		DRV_EnableDisableSpeed(TRUE);
 		distance = US_GetLastCentimeterValue();
 		if(distance < 60 && distance != 0)
@@ -49,18 +52,22 @@ switch(fightState)
 	break;
 
 	case FIGHT_STATE_BOOST:
-		DRV_SetSpeed(8000,8000);
+		DRV_SetSpeed(6000,6000);
 		DRV_EnableDisableSpeed(TRUE);
-		if (US_GetLastCentimeterValue() > 50)
+		distance = US_GetLastCentimeterValue();
+		if (distance > 50)
 		{
 			FIGHT_SetState(FIGHT_STATE_RUN);
 		}
+
 		break;
 
 	case FIGHT_STATE_LINEDETECTED:
 		DRV_EnableDisableSpeed(TRUE);
-		DRV_SetSpeed(-4000,-1000);
+		DRV_SetSpeed(-4000,-4000);
 		FRTOS1_vTaskDelay(500/portTICK_RATE_MS);
+		DRV_SetSpeed(-4000,4000);
+		FRTOS1_vTaskDelay(300/portTICK_RATE_MS);
 		FIGHT_SetState(FIGHT_STATE_RUN);
 		break;
 
@@ -90,6 +97,8 @@ void CheckAccel(void)
 
 static portTASK_FUNCTION(FightTask, pvParameters) {
   (void)pvParameters; /* not used */
+  BUZ_Beep(500,1000);
+  FRTOS1_vTaskDelay(100/portTICK_RATE_MS);
   for(;;) {
     FIGHT_StateMachine();
     FRTOS1_vTaskDelay(10/portTICK_RATE_MS);
